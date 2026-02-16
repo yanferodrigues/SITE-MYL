@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+        <link rel="icon" href="{% static 'assets/logo/logo.png' %}">
+        <title>MYL</title>
+    </head>
+    <body>
+
+        <header class="box">
+            <div class="header">
+                <a href="index.html" class="logo">
+                    <img src="{% static 'assets/logo/logo.png' %}">
+                    <h1>Manage Your Life</h1>
+                </a>
+                <div class="icons">
+                    <a href="about.html"><img src="{% static 'assets/icons/question.png' %}"></a>
+                    <button><img src="{% static 'assets/icons/notifications.png' %}"></button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <aside class="menu box">
+                <a class="user" href="user.html">
+                    <img src="{% static 'assets/icons/user.png' %}">
+                    <h5>USERNAME</h5>
+                </a>
+                <nav id="navegation">
+                    <a class="active"><img src="{% static 'assets/icons/dashboard.png' %}"><span>Dashboard</span></a>
+                    <a href="finance.html"><img src="{% static 'assets/icons/money.png' %}"><span>Finance</span></a>
+                    <a href="gym.html"><img src="{% static 'assets/icons/gym.png' %}"><span>Gym</span></a>
+                    <a href="tasks.html"><img src="{% static 'assets/icons/checklist.png' %}"><span>Tasks</span></a>
+                </nav>
+            </aside>
+            <button onclick="openNav()" id="openNavegation">
+                <img src="{% static 'assets/icons/down arrow.png' %}" alt="down arrow">
+            </button>
+
+            <section class="cards">
+                <a href="finance.html" class="card">
+                    <header><h3>Finance</h3><img src="{% static 'assets/icons/lucro.png' %}"></header>
+                    <p>LeftOver:</p>
+                    <h2>$ 234.524,50</h2>
+                    <h4>Month Economy<br>12%</h4>
+                </a>
+
+                <a href="gym.html" class="card">
+                    <header><h3>Gym</h3><img src="{% static 'assets/icons/heart.png' %}"></header>
+                    <p>Workout per week: <strong>4/5</strong></p>
+                    <img src="{% static 'assets/auxiliar/linha progresso.png' %}">
+                    <small>Next: Chest, Triceps, Shoulders</small>
+                </a>
+
+                <a href="tasks.html" class="card">
+                    <header><h3>Tasks</h3><img src="{% static 'assets/icons/check.png' %}"></header>
+                    <div class="scroll">
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                        <p>- Task</p>
+                    </div>
+                </a>
+
+                <a href="tasks.html" class="card graph">
+                    <header><h3>Goals progress</h3></header>
+                    <img src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}">
+                </a>
+
+                <a href="finance.html"class="card graph">
+                    <header><h3>Financial progress</h3></header>
+                    <img src="{% static 'assets/auxiliar/grafico de linha.png' %}">
+                </a>
+            </section>
+        </main>
+
+        <footer>
+            <a href="https://github.com/yanferodrigues" target="_blank"><img src="{% static 'assets/icons/github.png' %}"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="{% static 'assets/icons/linkedin.png' %}"></a>
+        </footer>
+        <script src="{% static 'assets/js/general.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,1608 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,600;1,600&display=swap');
+:root{
+    --bg:#fff9ed;
+    --dark:#282935;
+    --light:#ffffff;
+    --text:#151515;
+    --accent:#6b6a88;
+    --shadow:0 6px 16px rgba(0,0,0,.25);
+    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* RESET */
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: var(--font);
+}
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+/* BODY */
+body{
+    font-family:Montserrat, sans-serif;
+    background:var(--bg);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* HEADER */
+header{
+    width:90%;
+    margin:1rem;
+    padding:1rem;
+    background:var(--dark);
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    color:var(--light);
+    text-decoration:none;
+}
+
+.logo img{
+    height:40px;
+    width:auto;
+    filter:brightness(0) invert(1);
+}
+
+.icons{
+    display:flex;
+    gap:1rem;
+}
+
+.icons img{
+    height:22px;
+    min-width:22px;
+    filter:brightness(0) invert(1);
+}
+.icons button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* MAIN */
+main{
+    width:90%;
+    display:flex;
+    flex: 1;
+    
+    margin-bottom: 3vh;
+}
+
+/* MENU */
+.menu{
+    min-width:250px;
+    padding:1rem;
+    background:var(--dark);
+    border-radius:15px;
+    box-shadow:var(--shadow);
+    color:var(--light);
+    height: auto;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    background:#1d1e25;
+    padding:.6rem;
+    border-radius:10px;
+    margin-bottom:1rem;
+    text-decoration:none;
+    color:var(--accent);
+}
+
+.user img{
+    height:32px;
+    width:32px;
+    border-radius: 50px;
+}
+
+nav{
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+}
+
+nav a{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.5rem;
+    color:var(--light);
+    text-decoration:none;
+    border-radius:10px;
+    transition:.2s;
+}
+
+nav img{
+    height:20px;
+    width:auto;
+    filter:brightness(0) invert(1);
+}
+
+nav a:hover,
+nav a.active{
+    border:1px solid var(--accent);
+}
+#openNavegation {
+    display: none;
+}
+/* CARDS */
+.cards{
+    flex:1;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    justify-content:center;
+    margin-bottom: 3vh;
+    margin-top: 20px;
+}
+
+.card{
+    width:360px;
+    height:300px;
+    color: #151515;
+    background:#ffffff;
+    border-radius:20px;
+    padding:2rem;
+    box-shadow:var(--shadow);
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    gap:.6rem;
+    align-items: start;
+}
+.card small{
+    margin-top: 2rem;
+}
+.card header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--light);
+}
+
+.card header img{
+    height:28px;
+    width:auto;
+}
+
+.card h4{
+    color:#8DD3BE;
+}
+
+.scroll{
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+    overflow-x: hidden;
+    max-height:140px;
+    width: 100%;
+    background-color:#f6f6f6 ;
+    height: 200px;
+    width: 100%;
+    border: solid 1px #cacaca;
+    border-radius: 15px;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* IMAGENS DENTRO DOS CARDS */
+.card img{
+    max-width:100%;
+    max-height:160px;
+    object-fit:contain;
+}
+
+/* LINHA DE PROGRESSO */
+.card img{
+    height:18px;
+    width:auto;
+}
+
+/* GRÁFICOS */
+.graph img{
+    height:180px;
+    width:100%;
+    object-fit:contain;
+}
+
+/* FOOTER */
+footer{
+    width:100%;
+    background:var(--dark);
+    display:flex;
+    justify-content:flex-end;
+    padding:1rem;
+    gap:.8rem;
+
+}
+
+footer img{
+    height:26px;
+    width:auto;
+    filter:brightness(0) invert(1);
+}
+
+.btn-save {
+    min-width: 60px;
+    max-width: 100px;
+    min-height: 30px;
+    margin: 10px;
+    margin-top: 10px;
+    background-color: #48a4ff;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    
+}
+.btn-save:hover {
+    border:solid #2972bb 2px;
+
+}
+.btn-add {
+    min-width: 60px;
+    max-width: 100px;
+    min-height: 30px;
+    margin: 15px;
+    margin-top: 10px;
+    background-color: #44b82d;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn-add:hover {
+    border:solid #0a6d17 2px;
+
+}
+.btn-remove {
+    min-width: 60px;
+    max-width: 100px;
+    min-height: 30px;
+    margin: 15px;
+    margin-top: 10px;
+    background-color: #de3636;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn-remove:hover {
+    border:solid #850000 2px;
+
+}
+
+.btn-less-plus{
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    border: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.btn-less-plus:hover{
+    border: solid #6a6a6a 1px;
+}
+
+.disabled {
+  pointer-events: none;   
+  opacity: 0.3;           
+  filter: grayscale(50%); 
+}
+
+.box-confirmation {
+    display: flex;
+    gap: 5px;
+}
+.box-confirmation p{
+    font-size: small;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+.default-input {
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    text-align: center;
+    height: 40px;
+    width: 300px;
+}
+
+/************** SPECIFIC *****************/
+.content-box{
+    flex:1;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+.content-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: #ffffff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 95%;
+    height: 70px;
+}
+
+.specific-content {
+    width:95%; 
+    height: auto;
+    min-height:750px;
+    background:#ffffff;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    padding:2rem;
+    box-shadow:var(--shadow);
+    gap: 2%;
+}
+.specific-content-finance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 2%;
+}
+.content-title img{
+    height:28px;
+    width: 28px;
+}
+
+.not-found, .rest-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 800px;
+    color: #a9a9a9;
+    font-size: xx-large;
+}
+.not-found {
+    height: 800px;
+}
+
+/************** FINANCE *****************/
+
+.specific-finance-top {
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.specific-finance-top section{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #cacaca;
+    padding: 5px;
+    height: 70px;
+    width: 30%;
+    justify-content: start;
+    align-items: center;
+    border-radius:5px ;
+}
+.specific-finance-top-title{
+    display: flex;
+    gap: 10px;
+}
+.specific-finance-top-title img{
+    height: 15px;
+}
+
+
+.specific-finance-top-income:hover{
+    box-shadow: 0px 0px 16px #79ff79;
+    cursor:pointer;
+}
+
+.specific-finance-top-expenses:hover{
+    box-shadow: 0px 0px 16px #ffa9a9;
+    cursor:pointer;
+}
+
+.specific-finance-top-values{
+    margin-top: 10px;
+    font-family: Impact, Haettenschweiler,;
+}
+
+
+.specific-finance-main {
+    display: flex;
+    overflow-y:auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px #cacaca; 
+    width: 100%;
+    height: 700px;
+    padding: 1%;
+    gap: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.specific-finance-main-right {
+    display: flex;
+    flex-direction: column; 
+    width: 30%;
+    height: 100%;
+    gap: 50px;
+    padding-top: 70px;
+}
+.specific-finance-main-history{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.specific-finance-main-history-self{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+.specific-finance-main-history-value{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    border-top: solid 1px #cacaca;
+    padding: 20px;
+    text-shadow: var(--shadow);
+}
+.specific-finance-main-graph{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.finance-tabs {
+    display: flex;
+    border: var();
+    background-color: #ffffff;
+    width: 50%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.specific-finance {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    width: 100%;
+    height: 100%;
+}
+.finance-tab {
+    background-color: transparent;
+    border: solid #cacaca 1px;
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: var(--font) bold;
+    cursor: pointer;
+}
+.finance-tab:hover , .finance-tab.active{
+    background-color: var(--dark);
+    color: #fff;
+}
+.finance-page {
+    display: none;
+    width: 100%;
+}
+.finance-page.active {
+    display: block;
+    height: 100%;
+}
+#finance-credit {
+    height: 90%;
+    width: 100%;
+}
+.finance-credit-content {
+    display: flex;
+    width: 100%;
+    height: 800px;
+    justify-content: flex-start; 
+    align-items: stretch;        
+}
+#credit-cards { 
+    border:solid #cacaca 1px;
+    width: 30%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px; 
+    flex-shrink: 0;
+}
+.credit-cards-accounts.active {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.credit-cards-accounts {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+#credit-cards-main-content {
+    display: flex;
+    flex: 1;
+    border:solid #cacaca 1px;
+    border-left: 0px;
+    width: 70%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+.credit-cards-all-accounts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.self-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: solid #cacaca 1px;
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: large;
+    text-transform: capitalize;
+    gap: 10px;
+    padding: 10px;
+}
+.new-self-card {
+    border: solid #cacaca 1px;
+    min-height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    font-size: large;
+    text-align: center;
+}
+.self-card-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.add-credit-card-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid #cacaca 1px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #008e1a;
+    min-width: 35px;
+    min-height: 35px;
+    font-weight: 700;
+    color: white;
+    font-size: medium;
+    padding-bottom: 5px;
+}
+.add-credit-card-account:hover {
+    border: solid 3px #007e17;
+}
+.self-card:hover, .self-card.active{
+    color: white;
+    background-color: var(--dark);
+}
+.credit-cards-accounts-graph {
+    width: 90%;
+}
+.credit-cards-accounts-self {
+    height: auto;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px #cacaca solid;
+    margin: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+
+}
+.credit-cards-accounts-self h3{
+    background-color: var(--dark);
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: white;
+    font-family: var(--font);
+    font-weight: 400;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.credit-cards-accounts-self h2 {
+    font-family: var(--font);
+    font-weight: 500;
+    padding-top: 10px;
+
+}
+.credit-cards-btns {
+    display: flex;
+    gap: 3px;
+}
+
+#finance-duties {
+    width: 90%;
+    height: 700px;
+}
+.finance-duties-self {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    height: 80px;
+}
+.finance-duties-self:hover {
+    background-color: #dbdbdb;
+}
+.finance-duties-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.finance-duties-all {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.btn-add-dutie {
+    display: flex;
+    justify-content: center;
+}
+.finance-duties-save {
+    display: flex;
+    justify-content: end;
+}
+.btn-little-less-white {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+.btn-little-less-white:hover {
+    background-color: #c71e1e;
+    color: white;
+}
+.btn-little-less-black {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+.btn-little-less-black:hover {
+    background-color: #c71e1e;
+    color: white;
+}
+/************** TASKS *****************/
+.specific-tasks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.specific-tasks-main {
+    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+.specific-tasks-title {
+    text-decoration: none;
+    color: #151515;
+}
+.specific-tasks-main-today {
+    width:70%;
+    height:400px;
+    background:#ffffff;
+    border-radius:20px;
+    padding:2rem;
+    box-shadow:var(--shadow);
+    text-decoration:none;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+.specific-tasks-main-today-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.specific-tasks-main-today-next {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 300px;
+    border: solid 1px #cacaca;
+    border-radius: 15px;
+    overflow-y:auto;
+    background-color: #f6f6f6;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: hidden;
+}
+.specific-tasks-main-today-now {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 300px;
+}
+.specific-tasks-main-today-now-pendent {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 80%;
+    width: 100%;
+    margin-top: 20px;
+}
+.specific-tasks-main-today-now-pendent-description {
+    display: flex;
+    font-size: smaller;
+    color: #5e5e5e;
+    max-width: 60%;
+    min-height: 100px;
+    text-align: center;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.specific-tasks-main-today-now-title {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    padding-left: 15%;
+}
+
+.specific-tasks-future {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content:center;
+    
+}
+
+.specific-tasks-future-card {
+    width: 450px;
+    height: 250px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.specific-tasks-future-card-content{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    margin-top: 20px;
+    background-color:#f6f6f6 ;
+    height: 200px;
+    width: 100%;
+    border: solid 1px #cacaca;
+    border-radius: 15px;
+    padding: 20px;
+    gap: 20px;
+    color: black;
+    overflow-x: hidden;
+    
+}
+
+.content-title-tasks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: #ffffff;
+    border-radius: 15px;
+    width: 95%;
+    height: 80px;
+    margin-bottom: 20px;
+}
+.content-title-tasks img{
+    height:28px;
+    width: 28px;
+}
+.specific-tasks-main-btns {
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+.specific-tasks-main-btns button{
+    min-width: 100px;
+}
+
+/************** GYM *****************/
+
+.specific-gym {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.specific-gym-days {
+    width: 400px;
+    height: 200px;
+    border: solid 1px #cacaca;
+    border-radius: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.specific-gym-days-title {
+    display: flex;
+    background-color: var(--dark);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.specific-gym-days-title-btn {
+    background-color: #0080ff;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22px;
+    border: 0;
+    cursor: pointer;
+}
+.specific-gym-days-title-btn:hover {
+    border: solid #48a4ff 2px;
+}
+.specific-gym-days-title-btn img{
+    height: 100%;
+}
+.specific-gym-exercises-division {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: #676767;
+    padding: 23px;
+    max-width: auto;
+    min-height: 120px;
+    border-bottom: #cacaca 1px solid;
+    margin: 10px;
+}
+.specific-gym-exercises-title{
+    font-size: large;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.specific-gym-exercises {
+    min-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.specific-gym-btn {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/************** USER *****************/
+.user-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+.user-content div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.user-input {
+    width: 400px;
+    height: 50px;
+    text-align: center;
+    border-radius: 7px;
+    border: solid 1px #9c9c9c;
+    font-size: large;
+    color: #8c8c8c;
+}
+.change-user {
+    text-decoration: underline;
+    color: var(--dark);
+    font-size: 12px ;
+    cursor: pointer;
+}
+.change-user:hover{
+    text-decoration: underline;
+    color: #6b677e;
+}
+#btn-logout {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    border-radius: 7px;
+    border: solid 1px #500f0f;
+    background-color: #c32323;
+    font-size: large;
+    color: white;
+    margin-top:80px ;
+}
+/************** ABOUT *****************/
+.about {  
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    height: 800px;
+    width: 100%;
+    min-width: 400px;
+    
+}
+.about-content {
+    background-color: var(--dark);
+    width: 90%;
+    height: 90%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+    overflow-y: auto;
+    padding: 60px;
+    
+}
+.about-content p {
+    line-height: 1.7;
+}
+/************** OVERLAYS *****************/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.overlay-container {
+    display: flex;
+    background-color: white;
+    height: 700px;
+    width:50%;
+    min-width: 480px;
+    border-radius: 15px;
+    flex-direction: column;
+}
+.close-overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    height: 40px;
+}
+.close-overlay-btn {
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 40px;
+    width: 40px;
+    border: solid 1px;
+}
+.close-overlay-btn:hover{
+    background-color: rgb(199, 61, 61);
+    color: white;
+}
+
+.overlay-container-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 92%;
+
+    justify-content: start;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+.overlay-container-content-save {
+    height: 60px;
+    width: 95%;
+    display: flex;
+    justify-content: end;
+}
+
+#edit-workout-monday,
+#edit-workout-tuesday,
+#edit-workout-wednessday,
+#edit-workout-thursday,
+#edit-workout-friday,
+#edit-workout-saturday,
+#edit-workout-sunday,
+#report-incomes,
+#report-expenses,
+#add-task-btn,
+.credit-self-account,
+#daily-tasks-overlay,
+#others-tasks-overlay,
+#passed-tasks-overlay,
+#add-finance-account {
+    display: none;
+}
+
+/**GYM**/
+
+
+.overlay-container-content-gym-add {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border: 0;
+
+}
+.overlay-container-content-gym-add:hover {
+    border: solid #008e1a;
+}
+.overlay-container-content-gym-add img{
+    height: 100%;
+}
+
+.overlay-container-content-gym-exercises {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+
+.overlay-container-content-gym-form {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 200px;
+    height: 400px;
+    margin: 20px;
+    width: 80%;
+    border: solid #cacaca 1px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.gym-sets {
+    border-radius: 5px;
+    border: solid #b2b2b2 1px;
+    width: 50px;
+    height: 30px;
+    margin-right: 5px;
+    padding-left: 5px;
+}
+.gym-reps {
+    border-radius: 5px;
+    border: solid #b2b2b2 1px;
+    width: 50px;
+    height: 30px;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+.gym-exercise {
+    border-radius: 5px;
+    border: solid #b2b2b2 1px;
+    width: 200px;
+    height: 30px;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#overlay-gym-general-forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.overlay-container-content-gym-form-title {
+    border-radius: 5px;
+    border: solid #474747 2px;
+    width: 150px;
+    height: 30px;
+    margin-right: 5px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+.close-gym-form {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
+
+.close-gym-form button{
+    height: 30px;
+    width: 30px;
+    border:1px solid #000000;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.close-gym-form button:hover{
+    background-color: rgb(199, 61, 61);
+    color: white;
+}
+
+/*****FINANCE*****/
+
+
+#report-incomes-container , #report-expenses-container{
+    height: 550px;
+    max-width: 30%;
+}
+
+
+
+
+
+.finance-reports-overlay {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    align-items: center;
+    gap: 30px;
+    justify-content: start;
+
+}
+.finance-reports-overlay h3{
+    text-decoration: none;
+    font-weight: 400;
+}
+.finance-reports-overlay input, .finance-reports-overlay select {
+    width: 80%;
+    min-height: 60px;
+    border: solid 1px #cacaca;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.finance-reports-overlay input::placeholder {
+    color: #585858;
+}
+
+.credit-self-account-overlay-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    padding: 30px;
+}
+.credit-self-account-overlay-content-graph{
+    width: 50%;
+    min-width: 300px;
+}
+.credit-self-account-overlay-content-payed {
+    display: flex;
+    flex-direction: column;
+    height:auto;
+    width: 100%;
+    padding: 20px;
+    gap: 2px;
+    padding-bottom: 10px;
+}
+.credit-self-account-overlay-content-payed-instalments.payed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cacaca;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #afffbe;
+    height: 50px;
+    box-shadow: var(--shadow);
+}
+.credit-self-account-overlay-content-payed-instalments.payed:hover {
+    background-color: #9fe9ad;
+}
+.credit-self-account-overlay-content-payed-instalments {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cacaca;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #f4ff96;
+    height: 50px;
+    box-shadow: var(--shadow);
+}
+.credit-self-account-overlay-content-payed-instalments:hover {
+    background-color: #eded79;
+}
+
+
+/*****TASKS*****/
+
+
+.task-overlay-add-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+    gap: 30px;
+    margin-top: 10px;
+    padding-bottom: 50px;
+    overflow-y: auto;
+
+}
+.add-task-text-input, .task-overlay-add-content select,.current-date-input{ 
+    border-radius: 5px;
+    border: solid #b2b2b2 1px;
+    width: 300px;
+    min-height: 30px;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+.task-overlay-add-content textarea {
+    border-radius: 5px;
+    border: solid #b2b2b2 1px;
+    width: 300px;
+    min-height: 100px;
+    padding: 7px;
+}
+.task-overlay-content-time {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+.task-overlay-content-time p{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 7px;
+}
+.task-overlay-content-hour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.task-overlay-content-hour label {
+    font-size: small;
+    margin-bottom: 5px;
+}
+
+#task-overlay-content-hour-start, #task-overlay-content-hour-end{
+    display: flex;
+    gap: 5px;
+}
+#task-overlay-content-hour-start input, #task-overlay-content-hour-end input{
+    border-radius: 5px;
+    border: solid #b2b2b2 1px;
+    width: 50px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    margin: 0;
+}
+.general-tasks-overlay {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.self-task-card-overlay {
+    display: flex;
+    width: 230px;
+    height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 15px;
+    border: solid #cecece 1px;
+    padding: 8px;
+    text-align: center;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+.self-task-card-overlay-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.self-task-card-overlay-title {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--dark);
+    border-radius: 15px ;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-justify: distribute;
+    margin-bottom: 5px;
+}
+.self-task-card-overlay-description {
+    margin-top: 5px;
+    color: #646464;
+    margin-bottom: 5px;
+}
+.overlay-tasks-general-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+
+@media (max-width:1200px){
+    main{
+        flex-direction:column;
+        align-items: center;
+    }
+
+    .menu{
+        width:90%;
+        
+    }
+
+    .cards{
+        justify-content:center;
+    }
+
+    .card{
+        width:90%;
+        height:auto;
+    }
+    .specific-finance-top-values,.card-title p,h4{
+        font-size: smaller;
+    }
+    .specific-tasks-future {
+        gap: 20px;
+        align-items: center;
+    }
+    .specific-tasks-future-card {
+        width: 400px;
+        height: 250px;
+    }
+    .specific-tasks-main {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .specific-tasks-main-today {
+        width: 95%;
+    }
+    .specific-tasks-main-btns {
+        flex-direction: row;
+        width: 80%;
+    }
+    #credit-cards {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: 100px;
+        width: 100%;
+    }
+    .self-card {
+        flex-shrink: 0;
+        width: 200px;
+        align-items: center;
+        justify-content: center;
+    }
+    .finance-credit-content {
+        flex-direction: column;
+        width: 100%;
+        height: 800px;
+    }
+    
+    #navegation {
+        display: none;
+    }
+    #openNavegation {
+        display: flex;
+        justify-content: center;
+        width: 10%;
+        background-color: var(--dark);
+        color: #fff;
+        border: solid #1d1e25 1px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    #openNavegation img {
+        height: 20px;
+    }
+    #openNavegation:hover {
+        background-color: #1d1e25;
+    }
+    .content-box {
+        margin-top: 1rem;
+    }
+
+    
+    .specific-finance-main {
+        width: 100%;
+    }
+    #credit-cards-main-content {
+        border-left: solid 1px #cacaca;
+        overflow-y: scroll;
+        width: 100%;
+        height: 100%;
+    }
+    .overlay-container-content-gym-form {
+        width: 95%;
+    }   
+    .self-card-form {
+        flex-direction:row;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    body {
+        align-items: stretch;
+        min-width: 450px
+    }
+
+    header,
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 0.5rem;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .cards {
+        justify-content: center;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+    }
+
+    footer {
+        width: 100%;
+        justify-content: center;
+    }
+
+
+}
