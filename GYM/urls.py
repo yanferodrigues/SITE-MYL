@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from DASHBOARD.views import index
+from GYM.views import gym
+
 
 urlpatterns = [
-    path('', index, name='index')
+    path("gym/", gym, name="gym"),
 ]

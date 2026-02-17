@@ -1,0 +1,512 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <main>
+            <aside class="menu box">
+                <a class="user" href="{% url "user" %}">
+                    <img src="{% static 'assets/icons/user.png' %}">
+                    <h5>USERNAME</h5>
+                </a>
+                <nav id="navegation">
+                    <a href="{% url "index" %}"><img src="{% static 'assets/icons/dashboard.png' %}"><span>Dashboard</span></a>
+                    <a class="active"><img src="{% static 'assets/icons/money.png' %}"><span>Finance</span></a>
+                    <a href="{% url "gym" %}"><img src="{% static 'assets/icons/gym.png' %}"><span>Gym</span></a>
+                    <a href="{% url "tasks" %}"><img src="{% static 'assets/icons/checklist.png' %}"><span>Tasks</span></a>
+                </nav>
+            </aside>
+            <button onclick="openNav()" id="openNavegation">
+                <img src="{% static 'assets/icons/down arrow.png' %}" alt="down arrow">
+            </button>
+            
+            <section class="content-box">
+                <div class="content-title">
+                    <img src="{% static 'assets/icons/lucro.png' %}">
+                    <h3>Finance</h3>
+                </div>
+                
+                <section class="specific-content">
+                    <div class="specific-content-finance">
+                        <section class="finance-tabs">
+                            <button onclick="tabSelector('finance-main',this)" class="finance-tab active">Main</button>
+                            <button onclick="tabSelector('finance-credit',this)" class="finance-tab">Credit</button>
+                            <button onclick="tabSelector('finance-duties',this)" class="finance-tab">Duties</button>
+                        </section>
+                        <div id="finance-main" class="finance-page active" >
+                            <section class="specific-finance">   
+                                <div class="specific-finance-top" >
+                                    <section class="specific-finance-top-leftover">
+                                        <div class="specific-finance-top-title">
+                                            <img src="{% static 'assets/icons/correto.png' %}" alt="">
+                                            <h4>LeftOver</h4>
+                                        </div>
+                                        <div class="specific-finance-top-values">
+                                            <p>$ 550,00</p>
+                                        </div>
+                                    </section>
+
+                                    <section onclick="openOverlay('report-incomes')" class="specific-finance-top-income">
+                                        <div class="specific-finance-top-title">
+                                            <img src="{% static 'assets/icons/mais.png' %}" alt="">
+                                            <h4>Income</h4>
+                                        </div>
+                                        <div class="specific-finance-top-values">
+                                            <p>$ 1.800,00</p>
+                                        </div>
+                                    </section>
+                                    <div class="overlay" id='report-incomes' >
+                                        <div class="overlay-container" id="report-incomes-container">
+                                            <div class="close-overlay">
+                                                <button onclick="closeOverlay('report-incomes')" class="close-overlay-btn">
+                                                    X
+                                                </button>
+                                            </div>
+                                            <div class="overlay-container-content">
+                                                <form method="get" action="" class="finance-reports-overlay">
+                                                    <h3>REPORT INCOMES</h3>
+                                                    <select>
+                                                        <option></option>
+                                                        <option>Bills</option>
+                                                        <option>Food</option>
+                                                        <option>Transport</option>
+                                                        <option>Health</option>
+                                                        <option>Leisure</option>
+                                                        <option>Education</option>
+                                                        <option>Personal</option>
+                                                        <option>Invests</option>
+                                                        <option>Travel</option>
+                                                    </select>
+                                                    <input placeholder="Value:" type="text">
+                                                    <input placeholder="Date:" type="date">
+                                                    <input placeholder="Description:" type="text">
+                                                    <button class="btn-save">Save</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <section onclick="openOverlay('report-expenses')" class="specific-finance-top-expenses">
+                                        <div class="specific-finance-top-title">
+                                            <img src="{% static 'assets/icons/menos.png' %}" alt="">
+                                            <h4>Expenses</h4>
+                                        </div>
+                                        <div class="specific-finance-top-values">
+                                            <p>$ 1.250,00</p>
+                                        </div>
+                                    </section>
+                                    <div class="overlay" id='report-expenses' >
+                                        <div class="overlay-container" id="report-expenses-container">
+                                            <div class="close-overlay">
+                                                <button onclick="closeOverlay('report-expenses')" class="close-overlay-btn">
+                                                    X
+                                                </button>
+                                            </div>
+                                            <div class="overlay-container-content">
+                                                <form action="" method="get" class="finance-reports-overlay">
+                                                    <h3>REPORT EXPENSES</h3>
+                                                    <select>
+                                                        <option></option>
+                                                        <option>Bills</option>
+                                                        <option>Food</option>
+                                                        <option>Transport</option>
+                                                        <option>Health</option>
+                                                        <option>Leisure</option>
+                                                        <option>Education</option>
+                                                        <option>Personal</option>
+                                                        <option>Invests</option>
+                                                        <option>Travel</option>
+                                                    </select>
+                                                    <input placeholder="Value:" type="text">
+                                                    <input placeholder="Date:" type="date">
+                                                    <input placeholder="Description:" type="text">
+                                                    <button class="btn-save">Save</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="specific-finance-main">
+                                    <div class="specific-finance-main-title">
+                                        <h4>History</h4>
+                                    </div>
+                                    <div class="specific-finance-main-graph">
+                                        <img src="{% static 'assets/auxiliar/goal graph.png' %}" alt="goal graph">
+                                        <img src="{% static 'assets/auxiliar/current graph.png' %}" alt="current graph">
+                                    </div>
+                                    <div class="specific-finance-main-history">
+                                        <div class="specific-finance-main-history-self">
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Course</p>
+                                                <p>-50</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Debts</p>
+                                                <p>-100</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Food</p>
+                                                <p>-5</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Job</p> 
+                                                <p>+1000</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Party</p> 
+                                                <p>-50</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Online sell</p> 
+                                                <p>+70</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Fuel</p> 
+                                                <p>-100</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Car maintenence</p> 
+                                                <p>-200</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Car maintenence</p> 
+                                                <p>-200</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Car maintenence</p> 
+                                                <p>-200</p>
+                                            </div>
+                                            <div class="specific-finance-main-history-value">
+                                                <p>Car maintenence</p> 
+                                                <p>-200</p>
+                                            </div>
+                                        </div>  
+                                    </div>    
+                                </div>
+                            </section>
+                              
+                        </div>  
+                        <div id="finance-credit" class="finance-page">
+                            <div class="finance-credit-content">
+                                <aside id="credit-cards">
+                                    
+                                    <div onclick="cardSelector('nubank-accounts',this)" id="nubank" class="self-card active">
+                                        Nubank
+                                        <button class="btn-little-less-white">-</button>
+                                    </div>
+                                    <div onclick="cardSelector('inter-accounts',this)" id="inter" class="self-card">
+                                        Inter
+                                        <button class="btn-little-less-white">-</button>
+                                    </div>
+                                    <div onclick="cardSelector('bradesco-accounts',this)" id="bradesco" class="self-card">
+                                        Bradesco
+                                        <button class="btn-little-less-white">-</button>
+                                    </div>
+                                    <div onclick="cardSelector('sicredi-accounts',this)" id="sicredi"class="self-card">
+                                        Sicredi
+                                        <button class="btn-little-less-white">-</button>
+                                    </div>
+                                    <div onclick="cardSelector('picpay-accounts',this)" id="picpay"class="self-card">
+                                        Picpay
+                                        <button class="btn-little-less-white">-</button>
+                                    </div>
+                                    <div onclick="cardSelector('bancodobrasil-accounts',this)" id="banco do brasil" class="self-card">
+                                        Banco do brasil
+                                        <button class="btn-little-less-white">-</button>
+                                    </div>
+                                    <div onclick="cardSelector('will-accounts',this)" id="will" class="self-card">
+                                        Will
+                                        <button class="btn-little-less-white">-</button>
+                                    </div>
+                                    <button onclick="addSelfCard(this)" class="btn-add">
+                                        Add
+                                    </button>
+                                    
+                                </aside>
+                                
+                                <div id="credit-cards-main-content">
+                                    <div id="nubank-accounts" class="credit-cards-accounts active">
+                                        <div class="credit-cards-all-accounts">
+                                            <div onclick="openOverlay('credit-self-account-phone')" class="credit-cards-accounts-self">
+                                                <h3>Phone</h3>
+                                                <img class="credit-cards-accounts-graph" src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}" alt="graph">   
+                                                <p>Installments:</p>
+                                                <h2>8/10</h2> 
+                                            </div>
+                                            <div id='credit-self-account-phone' class="overlay credit-self-account">
+                                                <div class="overlay-container">
+                                                    <div class="close-overlay">
+                                                        <button onclick="closeOverlay('credit-self-account-phone')" class="close-overlay-btn">
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                    <div class="overlay-container-content">
+                                                        <div class="credit-self-account-overlay-content">
+                                                            <h3>Phone Installments</h3>
+                                                            <img class="credit-self-account-overlay-content-graph" src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}" alt="graph">
+                                                            <div class="credit-self-account-overlay-content-payed">
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>1/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>2/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>3/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>4/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>5/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>6/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>7/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments payed">
+                                                                    <p>8/10</p>
+                                                                    <p>Payed</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments">
+                                                                    <p>9/10</p>
+                                                                    <p>Pendent</p>
+                                                                </div>
+                                                                <div onclick="setState(this)" class="credit-self-account-overlay-content-payed-instalments">
+                                                                    <p>10/10</p>
+                                                                    <p>Pendent</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="overlay-container-content-save">
+                                                        <button class="btn-save">
+                                                            Save
+                                                        </button>
+                                                    </div>  
+                                                    
+                                                </div>
+                                            </div>
+                                            <div onclick="openOverlay('credit-self-account-television')" class="credit-cards-accounts-self">
+                                                <h3>Television</h3>
+                                                <img class="credit-cards-accounts-graph" src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}" alt="graph">
+                                                <p>Installments:</p>
+                                                <h2>1/3</h2>
+                                            </div>
+                                            <div id='credit-self-account-television' class="overlay credit-self-account">
+                                                <div class="overlay-container">
+                                                    <div class="close-overlay">
+                                                        <button onclick="closeOverlay('credit-self-account-television')" class="close-overlay-btn">
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                    <div class="overlay-container-content">
+                                                        <div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div onclick="openOverlay('credit-self-account-pedalboard')" class="credit-cards-accounts-self">
+                                                <h3>Pedalboard</h3>
+                                                <img class="credit-cards-accounts-graph" src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}" alt="graph">
+                                                <p>Installments:</p>
+                                                <h2>7/11</h2>
+                                            </div>
+                                            <div id='credit-self-account-pedalboard' class="overlay credit-self-account">
+                                                <div class="overlay-container">
+                                                    <div class="close-overlay">
+                                                        <button onclick="closeOverlay('credit-self-account-pedalboard')" class="close-overlay-btn">
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                    <div class="overlay-container-content">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div onclick="openOverlay('credit-self-account-guitar')" class="credit-cards-accounts-self">
+                                                <h3>Guitar</h3>
+                                                <img class="credit-cards-accounts-graph" src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}" alt="graph">
+                                                <p>Installments:</p>
+                                                <h2>8/12</h2>
+                                            </div>
+                                            <div id='credit-self-account-guitar' class="overlay credit-self-account">
+                                                <div class="overlay-container">
+                                                    <div class="close-overlay">
+                                                        <button onclick="closeOverlay('credit-self-account-guitar')" class="close-overlay-btn">
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                    <div class="overlay-container-content">
+                                                          
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div onclick="openOverlay('credit-self-account-amp')" class="credit-cards-accounts-self">
+                                                <h3>Amp</h3>
+                                                <img class="credit-cards-accounts-graph" src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}" alt="graph">
+                                                <p>Installments:</p>
+                                                <h2>1/7</h2>
+                                            </div>
+                                            <div id='credit-self-account-amp' class="overlay credit-self-account">
+                                                <div class="overlay-container">
+                                                    <div class="close-overlay">
+                                                        <button onclick="closeOverlay('credit-self-account-amp')" class="close-overlay-btn">
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                    <div class="overlay-container-content">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div onclick="openOverlay('credit-self-account-course')" class="credit-cards-accounts-self">
+                                                <h3>Course</h3>
+                                                <img class="credit-cards-accounts-graph" src="{% static 'assets/auxiliar/Grafico-de-Progresso-11.png' %}" alt="graph">
+                                                <p>Installments:</p>
+                                                <h2>4/12</h2>
+                                            </div>
+                                            <div id='credit-self-account-course' class="overlay credit-self-account">
+                                                <div class="overlay-container">
+                                                    <div class="close-overlay">
+                                                        <button onclick="closeOverlay('credit-self-account-course')" class="close-overlay-btn">
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                    <div class="overlay-container-content">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div> 
+                                        <button onclick="openOverlay('add-finance-account')" class="btn-add">Add</button>
+                                        <div id='add-finance-account' class="overlay">
+                                            <div class="overlay-container">
+                                                <div class="close-overlay">
+                                                    <button onclick="closeOverlay('add-finance-account')" class="close-overlay-btn">
+                                                        X
+                                                    </button>
+                                                </div>
+                                                <div class="overlay-container-content">
+                                                    <div class="add-finance-account">
+                                                        <form >
+                                                            <input type="text" placeholder="Title:">
+                                                            <select>
+                                                                <option>January</option>
+                                                                <option>February</option>
+                                                                <option>March</option>
+                                                                <option>April</option>
+                                                                <option>May</option>
+                                                                <option>June</option>
+                                                                <option>July</option>
+                                                                <option>August</option>
+                                                                <option>September</option>
+                                                                <option>October</option>
+                                                                <option>November</option>
+                                                                <option>December</option>                          
+                                                            </select>
+                                                            <input type="value" placeholder="Total value:" min="1">
+                                                            <input type="number" placeholder="Total installments:" min="1">
+                                                            
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="inter-accounts" class="credit-cards-accounts">
+                                        <div class="not-found">
+                                            ACCOUNTS NOT FOUND
+                                            <button class="btn-add">Add</button>
+                                        </div>   
+                                    </div> 
+                                    <div id="bradesco-accounts" class="credit-cards-accounts">
+                                        <div class="not-found">
+                                            ACCOUNTS NOT FOUND
+                                            <button class="btn-add">Add</button>
+                                        </div>   
+                                    </div>
+                                    <div id="sicredi-accounts" class="credit-cards-accounts">
+                                        <div class="not-found">
+                                            ACCOUNTS NOT FOUND
+                                            <button class="btn-add">Add</button>
+                                        </div>    
+                                    </div>
+                                    <div id="picpay-accounts" class="credit-cards-accounts">
+                                        <div class="not-found">
+                                            ACCOUNTS NOT FOUND
+                                            <button class="btn-add">Add</button>
+                                        </div>      
+                                        
+                                    </div>
+                                    <div id="bancodobrasil-accounts" class="credit-cards-accounts">
+                                        <div class="not-found">
+                                            ACCOUNTS NOT FOUND
+                                            <button class="btn-add">Add</button>
+                                        </div>     
+                                    </div>
+                                    <div id="will-accounts" class="credit-cards-accounts">
+                                        <div class="not-found">
+                                            ACCOUNTS NOT FOUND
+                                            <button class="btn-add">Add</button>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div id="finance-duties" class="finance-page">
+                            <form class="finance-duties-content">
+                                <div class="finance-duties-all">
+                                    <div id="finance-duties-all-content">
+                                        <div class="finance-duties-self">
+                                            <input class="checkbox" type="checkbox">
+                                            <p>Duty 1</p>   
+                                            <button class="btn-little-less-black">-</button>
+                                        </div>
+                                        <div class="finance-duties-self">
+                                            <input class="checkbox" type="checkbox">
+                                            <p>Duty 1</p>
+                                            <button class="btn-little-less-black">-</button>
+                                        </div>
+                                        <div class="finance-duties-self">
+                                            <input class="checkbox" type="checkbox">
+                                            <p>Duty 1</p>
+                                            <button class="btn-little-less-black">-</button>
+                                        </div>
+                                        <div class="finance-duties-self">
+                                            <input class="checkbox" type="checkbox">
+                                            <p>Duty 1</p>
+                                            <button class="btn-little-less-black">-</button>
+                                        </div>
+                                        <div class="finance-duties-self">
+                                            <input class="checkbox" type="checkbox">
+                                            <p>Duty 1</p>
+                                            <button class="btn-little-less-black">-</button>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="btn-add-dutie">
+                                    <button onclick="addNewDuty(this)" type="button" class="btn-add">Add</button>
+                                </div> 
+                            </form>
+                            
+                        </div> 
+                    </div>
+
+                </section>
+                
+            </section>
+        </main>
+        <script src="{% static 'assets/js/finance.js' %}"></script>
+        <script src="{% static 'assets/js/general.js' %}"></script>
+{% endblock content %}

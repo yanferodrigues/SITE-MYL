@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <main>
+            <aside class="menu box">
+                <a class="user" href="{% url "user" %}">
+                    <img src="{% static 'assets/icons/user.png' %}">
+                    <h5>USERNAME</h5>
+                </a>
+                <nav id="navegation">
+                    <a href="{% url "index" %}"><img src="{% static 'assets/icons/dashboard.png' %}"><span>Dashboard</span></a>
+                    <a href="{% url "finance" %}"><img src="{% static 'assets/icons/money.png' %}"><span>Finance</span></a>
+                    <a href="{% url "gym" %}"><img src="{% static 'assets/icons/gym.png' %}"><span>Gym</span></a>
+                    <a href="{% url "tasks" %}"><img src="{% static 'assets/icons/checklist.png' %}"><span>Tasks</span></a>
+                </nav>
+            </aside>
+            <button onclick="openNav()" id="openNavegation">
+                <img src="{% static 'assets/icons/down arrow.png' %}" alt="down arrow">
+            </button>
+
+            <section class="content-box">
+                <div class="content-title">
+                    <h3>Hello, [USERNAME]!</h3>
+                </div>
+                <div class="specific-content">
+                    <div class="user-content">
+                        <div>
+                            <label for="account-config-username">Username</label>
+                            <input id="account-config-username" class="user-input" type="text" value="USERNAME" readonly >
+                            <p class="change-user">Change Username</p>
+                        </div>
+                        <div>
+                            <label for="account-config-email"> Email</label>
+                            <input id="account-config-email" class="user-input" type="email" value="USERNAME@gmail.com" readonly>
+                            <p class="change-user">Change Email</p>
+                        </div>
+                        <div>
+                            <label for="account-config-password">Password</label>
+                            <input id="account-config-password" class="user-input" type="password" value="Password" readonly>
+                            <p class="change-user">Change Password</p>
+                        </div>
+                        <button id="btn-logout"> Logout </button>
+                    </div>
+                    
+                </div>
+            </section>
+        </main>
+        <script src="{% static 'assets/js/general.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+        <link rel="icon" href="{% static 'assets/logo/logo.png' %}">
+        <title>MYL</title>
+    </head>
+    <body>
+        <header class="box">
+            <div class="header">
+                <a href="{% url "index" %}" class="logo">
+                    <img src="{% static 'assets/logo/logo.png' %}">
+                    <h1>Manage Your Life</h1>
+                </a>
+                <div class="icons">
+                    <a href="{% url "about" %}"><img src="{% static 'assets/icons/question.png' %}"></a>
+                    <button><img src="{% static 'assets/icons/notifications.png' %}"></button>
+                </div>
+            </div>
+        </header>
+        {% block content %}{% endblock content %}
+        {% include "partials/footer.html" %}
+    </body>
+</html>
