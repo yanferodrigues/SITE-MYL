@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from GYM.views import gym
+from gym.views import gym
 
 
 urlpatterns = [
