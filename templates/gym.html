@@ -33,19 +33,20 @@
                                 </button>
                             </div>
                             <div class="specific-gym-exercises">
-                                <h4 class="specific-gym-exercises-title">Chest</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 incline bench press</p>
-                                    <p>4x12 straight bench press</p>
-                                    <p>4x12 crucifix</p>
-                                    <p>4x12 crossover</p>
-                                </div>
-                                <h4 class="specific-gym-exercises-title">Triceps</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 triceps extension with rope</p>
-                                    <p>4x12 french triceps</p>
-                                    <p>4x12 triceps dipping machine</p>
-                                </div>
+                                {% if monday %}
+                                    {% for group in monday.muscle_groups.all %}
+                                        <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
+                                        <div class="specific-gym-exercises-division">
+                                            {% for exercise in group.exercises.all %}
+                                            <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% else %}
+                                        <div class="rest-day">
+                                            REST DAY
+                                        </div>
+                                {% endif %}
                             </div>
                             <div class="overlay" id='edit-workout-monday'>
                                 <form class="overlay-container" id="workoutForm">
@@ -119,19 +120,20 @@
                                 </button>
                             </div>
                             <div class="specific-gym-exercises">
-                                <h4 class="specific-gym-exercises-title">Back</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 front pull wide</p>
-                                    <p>4x12 closed front pull</p>
-                                    <p>4x12 rowing</p>
-                                    <p>4x12 pull-ups</p>
-                                </div>
-                                <h4 class="specific-gym-exercises-title">Biceps</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 wide grip</p>
-                                    <p>4x12 narrow grip</p>
-                                    <p>4x12 neutral grip</p>
-                                </div>
+                                {% if tuesday %}
+                                    {% for group in monday.muscle_groups.all %}
+                                        <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
+                                        <div class="specific-gym-exercises-division">
+                                            {% for exercise in group.exercises.all %}
+                                            <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% else %}
+                                        <div class="rest-day">
+                                            REST DAY
+                                        </div>
+                                {% endif %}
                             </div>
                             <div id='edit-workout-tuesday' class="overlay">
                                 <div class="overlay-container">
@@ -154,9 +156,20 @@
                                 </button>
                             </div>
                             <div class="specific-gym-exercises">
-                                <div class="rest-day">
-                                    REST DAY
-                                </div>
+                                {% if wednesday %}
+                                    {% for group in monday.muscle_groups.all %}
+                                        <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
+                                        <div class="specific-gym-exercises-division">
+                                            {% for exercise in group.exercises.all %}
+                                            <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% else %}
+                                        <div class="rest-day">
+                                            REST DAY
+                                        </div>
+                                {% endif %}
                             </div>
                             <div id='edit-workout-wednessday' class="overlay">
                                 <div class="overlay-container">
@@ -179,13 +192,20 @@
                                 </button>
                             </div>
                             <div class="specific-gym-exercises">
-                                <h4 class="specific-gym-exercises-title">Leg</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 squat</p>
-                                    <p>4x12 leg press</p>
-                                    <p>4x12 extension chair</p>
-                                    <p>4x12 abduction chair</p>
-                                </div>
+                                {% if thursday %}
+                                    {% for group in monday.muscle_groups.all %}
+                                        <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
+                                        <div class="specific-gym-exercises-division">
+                                            {% for exercise in group.exercises.all %}
+                                            <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% else %}
+                                        <div class="rest-day">
+                                            REST DAY
+                                        </div>
+                                {% endif %}
                             </div>
                             <div id='edit-workout-thursday' class="overlay">
                                 <div class="overlay-container">
@@ -208,17 +228,20 @@
                                 </button>
                             </div>
                             <div class="specific-gym-exercises">
-                                <h4 class="specific-gym-exercises-title">Shoulders</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 lateral raises</p>
-                                    <p>4x12 front raises</p>
-                                    <p>4x12 shoulder press</p>
-                                    <p>4x12 face pull</p>
-                                </div>
-                                <h4 class="specific-gym-exercises-title">Cardio</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>30 min treadmill</p>
-                                </div>
+                                {% if friday %}
+                                    {% for group in monday.muscle_groups.all %}
+                                        <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
+                                        <div class="specific-gym-exercises-division">
+                                            {% for exercise in group.exercises.all %}
+                                            <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% else %}
+                                        <div class="rest-day">
+                                            REST DAY
+                                        </div>
+                                {% endif %}
                             </div>
                             <div id='edit-workout-friday' class="overlay">
                                 <div class="overlay-container">
@@ -241,21 +264,20 @@
                                 </button>
                             </div>
                             <div class="specific-gym-exercises">
-                                <h4 class="specific-gym-exercises-title">Triceps</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 triceps extension with rope</p>
-                                    <p>4x12 french triceps</p>
-                                </div>
-                                <h4 class="specific-gym-exercises-title">Biceps</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 narrow grip</p>
-                                    <p>4x12 neutral grip</p>
-                                </div>
-                                <h4 class="specific-gym-exercises-title">Shoulders</h4>
-                                <div class="specific-gym-exercises-division">
-                                    <p>4x12 shoulder press</p>
-                                    <p>4x12 face pull</p>
-                                </div>
+                                {% if saturday %}
+                                    {% for group in monday.muscle_groups.all %}
+                                        <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
+                                        <div class="specific-gym-exercises-division">
+                                            {% for exercise in group.exercises.all %}
+                                            <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% else %}
+                                        <div class="rest-day">
+                                            REST DAY
+                                        </div>
+                                {% endif %}
                             </div>
                             <div id='edit-workout-saturday' class="overlay">
                                 <div class="overlay-container">
@@ -278,9 +300,20 @@
                                 </button>
                             </div>
                             <div class="specific-gym-exercises">
-                                <div class="rest-day">
-                                    REST DAY
-                                </div>
+                                {% if sunday %}
+                                    {% for group in monday.muscle_groups.all %}
+                                        <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
+                                        <div class="specific-gym-exercises-division">
+                                            {% for exercise in group.exercises.all %}
+                                            <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% else %}
+                                        <div class="rest-day">
+                                            REST DAY
+                                        </div>
+                                {% endif %}
                             </div>
                             <div id='edit-workout-sunday' class="overlay">
                                 <div class="overlay-container">
