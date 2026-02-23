@@ -1,39 +1,33 @@
 from django.shortcuts import render
-from gym.models import Workouts,MuscleGroup,Exercise
+from gym.models import Workout,MuscleGroup,Exercise
 from django.contrib.auth.models import User
 
 def gym(request):
     user = User.objects.get(username="yanfelipe")
-    workouts = Workouts.objects.all().filter(user=user).prefetch_related("muscle_groups__exercises")
+    workouts = Workout.objects.all().filter(user=user).prefetch_related("muscle_groups__exercises")
 
-    days = [
-    "SUNDAY",
+    week_days = [
     "MONDAY",
     "TUESDAY",
     "WEDNESDAY",
     "THURSDAY",
     "FRIDAY",
     "SATURDAY",
+    "SUNDAY"
     ]
 
-    
-    
-    sunday = workouts.filter(day="SUNDAY").first()
-    monday = workouts.filter(day="MONDAY").first()
-    tuesday = workouts.filter(day="TUESDAY").first()
-    wednesday = workouts.filter(day="WEDNESDAY").first()
-    thursday = workouts.filter(day="THURSDAY").first()
-    friday = workouts.filter(day="FRIDAY").first()
-    saturday = workouts.filter(day="SATURDAY").first()
+    workout_by_day = {w.day: w for w in workouts}
+
+    days_of_workout = []
+
+    for day in week_days:
+        days_of_workout.append({
+            "name":day,
+            "workout":workout_by_day.get(day)
+        })
 
     
     return render(request,"gym.html", {
-        "sunday": sunday,
-        "monday": monday,
-        "tuesday": tuesday,
-        "wednesday": wednesday,
-        "thursday": thursday,
-        "friday": friday,
-        "saturday": saturday,
+        "days":days_of_workout
         })
     

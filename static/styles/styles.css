@@ -1124,7 +1124,7 @@ footer img{
 
 #edit-workout-monday,
 #edit-workout-tuesday,
-#edit-workout-wednessday,
+#edit-workout-wednesday,
 #edit-workout-thursday,
 #edit-workout-friday,
 #edit-workout-saturday,
@@ -1251,10 +1251,6 @@ footer img{
     height: 550px;
     max-width: 30%;
 }
-
-
-
-
 
 .finance-reports-overlay {
     display: flex;
