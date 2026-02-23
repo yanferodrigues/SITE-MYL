@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class DayPlan(models.Model):
+class Workouts(models.Model):
     WEEK_DAYS = [
     ("SUNDAY", "Sunday"),
     ("MONDAY", "Monday"),
@@ -12,7 +12,7 @@ class DayPlan(models.Model):
     ("SATURDAY", "Saturday")
     ]
     user = models.ForeignKey(User, related_name="gym_days" ,on_delete=models.CASCADE)
-    name = models.CharField(max_length=20, choices=WEEK_DAYS)
+    day = models.CharField(max_length=20, choices=WEEK_DAYS)
     
     def __str__(self):
         return self.name
@@ -36,10 +36,10 @@ class MuscleGroup(models.Model):
     ]
 
     name = models.CharField(max_length=20, choices=MUSCLE_GROUP_CHOICES, default="GENERAL")
-    day = models.ForeignKey(DayPlan, related_name="muscle_groups", on_delete=models.CASCADE)
+    workout = models.ForeignKey(Workouts, related_name="muscle_groups", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.nome} - {self.dia}'
+        return f'{self.name} - {self.day}'
     
 class Exercise(models.Model):
     name = models.CharField(max_length=100)
