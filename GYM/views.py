@@ -6,7 +6,18 @@ def gym(request):
     user = User.objects.get(username="yanfelipe")
     workouts = Workout.objects.all().filter(user=user).prefetch_related("muscle_groups__exercises")
 
+    if request.method == "POST":
+        workout_day_post = request.POST.get("workout_day")
+        muscle_group_post = request.POST.get("muscle_group")
+        exercises_post = request.POST.getlist("exercise[]")
+        sets_post = request.POST.getlist("sets[]")
+        reps_post = request.POST.getlist("reps[]")
 
+        Workout.objects.filter(user = user)
+        MuscleGroup.objects.filter()
+        Exercise.objects.filter(muscle_group = )
+
+    
     week_days = [
     "MONDAY",
     "TUESDAY",
