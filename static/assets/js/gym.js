@@ -59,3 +59,23 @@ function removeForm(button) {
     
 }
 
+document.addEventListener("input", function (e) {
+
+    if (
+        e.target.classList.contains("gym-sets") ||
+        e.target.classList.contains("gym-reps") ||
+        e.target.classList.contains("gym-exercise")
+    ) {
+
+        const groupForm = e.target.closest(".overlay-container-content-gym-form")
+
+        if (!groupForm) return
+
+        const saveButton = groupForm.querySelector(".save-gym-group")
+
+        if (saveButton) {
+            saveButton.classList.remove("hidden")
+        }
+    }
+})
+

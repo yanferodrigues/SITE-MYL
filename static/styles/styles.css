@@ -1123,8 +1123,12 @@ footer img{
     height: 60px;
     width: 95%;
     display: flex;
-    margin-top: 20px;
+    margin-top: 50px;
     justify-content: center;
+}
+
+.hidden {
+    display: none;
 }
 
 /**GYM**/
