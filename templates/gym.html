@@ -50,8 +50,8 @@
                                     {% endif %}
                                 </div>
                                 <div class="overlay" id='edit-workout-{{ day.name|lower }}'>
-                                    <form class="overlay-container" id="workoutForm">
-                                        
+                                    <div method='POST' class="overlay-container" id="workoutForm-{{ day.name|lower }}">
+                                        {% csrf_token %}
                                         <div class="close-overlay">
                                             <button type="button" onclick="closeOverlay('edit-workout-{{ day.name|lower }}')" class="close-overlay-btn">
                                                 X
@@ -63,21 +63,20 @@
                                                 <div id="overlay-gym-general-forms">
                                                     <div class="overlay-container-content-gym-form">
                                                         <select name="muscle_group[]" class="overlay-container-content-gym-form-title" required>
-                                                            <option disabled selected hidden>Muscle Group:</option>
-                                                            <option>Chest</option>
-                                                            <option>Back</option>
-                                                            <option>Triceps</option>
-                                                            <option>Biceps</option>
-                                                            <option>Shoulders</option>
-                                                            <option>Forearm</option>
-                                                            <option>Traps</option>
-                                                            <option>Quads</option>
-                                                            <option>Hamstrings</option>
-                                                            <option>Glutes</option>
-                                                            <option>Calves</option>
-                                                            <option>Adductors</option>
-                                                            <option>Abductors</option>
-                                                            <option>Abs</option>
+                                                            <option value="CHEST">Chest</option>
+                                                            <option value="BACK">Back</option>
+                                                            <option value="TRICEPS">Triceps</option>
+                                                            <option value="BICEPS">Biceps</option>
+                                                            <option value="SHOULDERS">Shoulders</option>
+                                                            <option value="FOREARM">Forearm</option>
+                                                            <option value="TRAPS">Traps</option>
+                                                            <option value="QUADS">Quads</option>
+                                                            <option value="HAMSTRINGS">Hamstrings</option>
+                                                            <option value="GLUTES">Glutes</option>
+                                                            <option value="CALVES">Calves</option>
+                                                            <option value="ADDUCTORS">Adductors</option>
+                                                            <option value="ABDUCTORS">Abductors</option>
+                                                            <option value="ABS">Abs</option>
                                                         </select>
 
                                                         <div class="gymExercisesContainer">
@@ -96,7 +95,8 @@
                                                 {% else %}
                                                     <div id="overlay-gym-general-forms">
                                                         {% for group in day.workout.muscle_groups.all %}
-                                                            <div class="overlay-container-content-gym-form">
+                                                            <form method='POST' class="overlay-container-content-gym-form">
+                                                                {% csrf_token %}
                                                                 <select name="muscle_group[]" class="overlay-container-content-gym-form-title" required>
                                                                     <option disabled selected hidden>{{ group.name }}</option>
                                                                     <option>Chest</option>
@@ -128,7 +128,12 @@
                                                                         </div>
                                                                     {% endfor %}
                                                                 </div>
-                                                            </div>
+                                                                <div class="overlay-container-content-save">
+                                                                    <button type="submit" class="btn-save">
+                                                                        Save
+                                                                    </button>
+                                                                </div>
+                                                            </form>
                                                         {% endfor %}
                                                     </div>
                                             {% endif %}
@@ -137,13 +142,7 @@
                                             </button>
 
                                         </div>
-
-                                        <div class="overlay-container-content-save">
-                                            <button type="submit" class="btn-save">
-                                                Save
-                                            </button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}

@@ -5,6 +5,17 @@ from django.contrib.auth.models import User
 def gym(request):
     user = User.objects.get(username="yanfelipe")
     workouts = Workout.objects.all().filter(user=user).prefetch_related("muscle_groups__exercises")
+    
+    # if request.method == 'POST':
+    #     workouts.filter(day = request.POST.get("day")).delete()
+        
+    #     muscle_groups = request.POST.getlist("muscle_group[]")
+    #     exercises = request.POST.getlist("exercise[]")
+    #     sets = request.POST.getlist("sets[]")
+    #     reps = request.POST.getlist("reps[]")
+        
+    
+    # else:
 
     week_days = [
     "MONDAY",
@@ -25,6 +36,7 @@ def gym(request):
             "name":day,
             "workout":workout_by_day.get(day)
         })
+    # return days_of_workout
 
     
     return render(request,"gym.html", {

@@ -1064,16 +1064,20 @@ footer img{
 /************** OVERLAYS *****************/
 
 .overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
+    background: rgba(0,0,0,0.6);
     justify-content: center;
     align-items: center;
     z-index: 1000;
+}
+
+.overlay.active {
+    display: flex;
 }
 .overlay-container {
     display: flex;
@@ -1119,25 +1123,8 @@ footer img{
     height: 60px;
     width: 95%;
     display: flex;
-    justify-content: end;
-}
-
-#edit-workout-monday,
-#edit-workout-tuesday,
-#edit-workout-wednesday,
-#edit-workout-thursday,
-#edit-workout-friday,
-#edit-workout-saturday,
-#edit-workout-sunday,
-#report-incomes,
-#report-expenses,
-#add-task-btn,
-.credit-self-account,
-#daily-tasks-overlay,
-#others-tasks-overlay,
-#passed-tasks-overlay,
-#add-finance-account {
-    display: none;
+    margin-top: 20px;
+    justify-content: center;
 }
 
 /**GYM**/

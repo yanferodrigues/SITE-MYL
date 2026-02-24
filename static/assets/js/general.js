@@ -7,11 +7,11 @@ function openNav() {
 }
 
 function openOverlay(id) {
-    document.getElementById(id).style.display = "flex";
+    document.getElementById(id).classList.add("active");
 }
 
 function closeOverlay(id) {
-    document.getElementById(id).style.display = "none";
+    document.getElementById(id).classList.remove("active");
 }
 
 function openOverlayClass(cl) {

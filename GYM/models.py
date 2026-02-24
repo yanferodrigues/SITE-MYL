@@ -15,7 +15,7 @@ class Workout(models.Model):
     day = models.CharField(max_length=20, choices=WEEK_DAYS)
     
     def __str__(self):
-        return self.day
+        return f'{self.user.username.upper()} - {self.day}'
     
 class MuscleGroup(models.Model):
     MUSCLE_GROUP_CHOICES = [
@@ -39,7 +39,7 @@ class MuscleGroup(models.Model):
     workout = models.ForeignKey(Workout, related_name="muscle_groups", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.workout} - {self.name}'
     
 class Exercise(models.Model):
     name = models.CharField(max_length=100)
@@ -48,4 +48,4 @@ class Exercise(models.Model):
     muscle_group = models.ForeignKey(MuscleGroup, related_name="exercises", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return f'{self.muscle_group} - {self.name}'
