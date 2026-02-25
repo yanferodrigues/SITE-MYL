@@ -1198,7 +1198,7 @@ footer img{
     padding-left: 5px;
     padding-right: 5px;
 }
-#overlay-gym-general-forms {
+.overlay-gym-general-forms {
     display: flex;
     flex-direction: column;
     justify-content: start;

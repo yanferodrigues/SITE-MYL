@@ -60,8 +60,14 @@
 
                                         <div class="overlay-container-content">
                                             {% if not day.workout %}
-                                                <div id="overlay-gym-general-forms">
-                                                    <div class="overlay-container-content-gym-form">
+                                                <div class="overlay-gym-general-forms">
+                                                    <form method="POST" class="overlay-container-content-gym-form">
+                                                        {% csrf_token %}
+                                                        <div class="close-overlay">
+                                                            <button type="button" onclick="closeOverlay('edit-workout-{{ day.name|lower }}')" class="close-overlay-btn">
+                                                                X
+                                                            </button>
+                                                        </div>
                                                         <select name="muscle_group" class="overlay-container-content-gym-form-title" required>
                                                             <option value="CHEST">Chest</option>
                                                             <option value="BACK">Back</option>
@@ -90,29 +96,39 @@
                                                                 <button type="button" class="btn-less-plus" onclick="addGymRowByButton(this)">+</button>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                        <input value='{{ day.name }}' name="workout_day" type="hidden">
+                                                        <div class="overlay-container-content-save save-gym-group hidden">
+                                                            <button type="submit" class="btn-save">
+                                                                Save
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 {% else %}
-                                                    <div id="overlay-gym-general-forms">
+                                                    <div class="overlay-gym-general-forms">
                                                         {% for group in day.workout.muscle_groups.all %}
                                                             <form method='POST' class="overlay-container-content-gym-form">
                                                                 {% csrf_token %}
+                                                                <div class="close-overlay">
+                                                                    <button type="button" onclick="closeOverlay('edit-workout-{{ day.name|lower }}')" class="close-overlay-btn">
+                                                                        X
+                                                                    </button>
+                                                                </div>
                                                                 <select name="muscle_group" class="overlay-container-content-gym-form-title" required>
-                                                                    <option value="{{ group.name }}" selected >{{ group.name }}</option>
-                                                                    <option value="CHEST">Chest</option>
-                                                                    <option value="BACK">Back</option>
-                                                                    <option value="TRICEPS">Triceps</option>
-                                                                    <option value="BICEPS">Biceps</option>
-                                                                    <option value="SHOULDERS">Shoulders</option>
-                                                                    <option value="FOREARM">Forearm</option>
-                                                                    <option value="TRAPS">Traps</option>
-                                                                    <option value="QUADS">Quads</option>
-                                                                    <option value="HAMSTRINGS">Hamstrings</option>
-                                                                    <option value="GLUTES">Glutes</option>
-                                                                    <option value="CALVES">Calves</option>
-                                                                    <option value="ADDUCTORS">Adductors</option>
-                                                                    <option value="ABDUCTORS">Abductors</option>
-                                                                    <option value="ABS">Abs</option>
+                                                                    <option value="CHEST" {% if group.name == "CHEST" %}selected{% endif %}>Chest</option>
+                                                                    <option value="BACK" {% if group.name == "BACK" %}selected{% endif %}>Back</option>
+                                                                    <option value="TRICEPS" {% if group.name == "TRICEPS" %}selected{% endif %}>Triceps</option>
+                                                                    <option value="BICEPS" {% if group.name == "BICEPS" %}selected{% endif %}>Biceps</option>
+                                                                    <option value="SHOULDERS" {% if group.name == "SHOULDERS" %}selected{% endif %}>Shoulders</option>
+                                                                    <option value="FOREARM" {% if group.name == "FOREARM" %}selected{% endif %}>Forearm</option>
+                                                                    <option value="TRAPS" {% if group.name == "TRAPS" %}selected{% endif %}>Traps</option>
+                                                                    <option value="QUADS" {% if group.name == "QUADS" %}selected{% endif %}>Quads</option>
+                                                                    <option value="HAMSTRINGS" {% if group.name == "HAMSTRINGS" %}selected{% endif %}>Hamstrings</option>
+                                                                    <option value="GLUTES" {% if group.name == "GLUTES" %}selected{% endif %}>Glutes</option>
+                                                                    <option value="CALVES" {% if group.name == "CALVES" %}selected{% endif %}>Calves</option>
+                                                                    <option value="ADDUCTORS" {% if group.name == "ADDUCTORS" %}selected{% endif %}>Adductors</option>
+                                                                    <option value="ABDUCTORS" {% if group.name == "ABDUCTORS" %}selected{% endif %}>Abductors</option>
+                                                                    <option value="ABS" {% if group.name == "ABS" %}selected{% endif %}>Abs</option>
                                                                 </select>
 
                                                                 <div class="gymExercisesContainer">
@@ -138,10 +154,9 @@
                                                         {% endfor %}
                                                     </div>
                                             {% endif %}
-                                            <button type="button" onclick="addNewForm()" class="btn-add">
+                                            <button type="button" onclick="addNewForm(this)" class="btn-add">
                                                 Add
                                             </button>
-
                                         </div>
                                     </div>
                                 </div>
