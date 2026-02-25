@@ -64,7 +64,7 @@
                                                     <form method="POST" class="overlay-container-content-gym-form">
                                                         {% csrf_token %}
                                                         <div class="close-overlay">
-                                                            <button type="button" onclick="closeOverlay('edit-workout-{{ day.name|lower }}')" class="close-overlay-btn">
+                                                            <button type="submit" class="close-overlay-btn">
                                                                 X
                                                             </button>
                                                         </div>
@@ -110,7 +110,7 @@
                                                             <form method='POST' class="overlay-container-content-gym-form">
                                                                 {% csrf_token %}
                                                                 <div class="close-overlay">
-                                                                    <button type="button" onclick="closeOverlay('edit-workout-{{ day.name|lower }}')" class="close-overlay-btn">
+                                                                    <button type="submit" class="close-overlay-btn">
                                                                         X
                                                                     </button>
                                                                 </div>
