@@ -34,15 +34,16 @@
                                     </button>
                                 </div>
                                 <div class="specific-gym-exercises">
-                                    {% if day.workout %}
+                                    {% if day.workout.muscle_groups.count >= 1 %}
                                         {% for group in day.workout.muscle_groups.all %}
                                             <h4 class="specific-gym-exercises-title">{{ group.name }}</h4>
                                             <div class="specific-gym-exercises-division">
                                                 {% for exercise in group.exercises.all %}
-                                                <p>{{exercise.sets}}x{{exercise.reps}} {{exercise.name}}</p>
+                                                <p>{{exercise.sets}} x {{exercise.reps}} - {{exercise.name}}</p>
                                                 {% endfor %}
                                             </div>
                                         {% endfor %}
+
                                         {% else %}
                                             <div class="rest-day">
                                                 REST DAY
@@ -53,22 +54,27 @@
                                     <div class="overlay-container" id="workoutForm-{{ day.name|lower }}">
 
                                         <div class="close-overlay">
+                                            <div></div>
                                             <button type="button" onclick="closeOverlay('edit-workout-{{ day.name|lower }}')" class="close-overlay-btn">
-                                                X
+                                                x
                                             </button>
                                         </div>
 
                                         <div class="overlay-container-content">
-                                            {% if not day.workout %}
+                                            {% if day.workout.muscle_groups.count < 1 %}
                                                 <div class="overlay-gym-general-forms">
                                                     <form method="POST" class="overlay-container-content-gym-form">
                                                         {% csrf_token %}
                                                         <div class="close-overlay">
-                                                            <button type="submit" class="close-overlay-btn">
-                                                                X
+                                                            <button type="submit" name="action" value="delete" class="btn-remove">
+                                                                Delete
+                                                            </button>
+                                                            <button type="button" onclick="removeForm(this)" class="btn-less-plus">
+                                                                -
                                                             </button>
                                                         </div>
                                                         <select name="muscle_group" class="overlay-container-content-gym-form-title" required>
+                                                            <option value=""></option>
                                                             <option value="CHEST">Chest</option>
                                                             <option value="BACK">Back</option>
                                                             <option value="TRICEPS">Triceps</option>
@@ -98,7 +104,7 @@
                                                         </div>
                                                         <input value='{{ day.name }}' name="workout_day" type="hidden">
                                                         <div class="overlay-container-content-save save-gym-group hidden">
-                                                            <button type="submit" class="btn-save">
+                                                            <button type="submit" name="action" value="save" class="btn-save">
                                                                 Save
                                                             </button>
                                                         </div>
@@ -110,8 +116,11 @@
                                                             <form method='POST' class="overlay-container-content-gym-form">
                                                                 {% csrf_token %}
                                                                 <div class="close-overlay">
-                                                                    <button type="submit" class="close-overlay-btn">
-                                                                        X
+                                                                    <button type="submit" name="action" value="delete" class="btn-remove">
+                                                                        Delete
+                                                                    </button>
+                                                                    <button type="button" onclick="removeForm(this)" class="btn-less-plus">
+                                                                        -
                                                                     </button>
                                                                 </div>
                                                                 <select name="muscle_group" class="overlay-container-content-gym-form-title" required>
@@ -146,7 +155,7 @@
                                                                 </div>
                                                                 <input value='{{ day.name }}' name="workout_day" type="hidden">
                                                                 <div class="overlay-container-content-save save-gym-group hidden">
-                                                                    <button type="submit" class="btn-save">
+                                                                    <button type="submit" name="action" value="save" class="btn-save">
                                                                         Save
                                                                     </button>
                                                                 </div>

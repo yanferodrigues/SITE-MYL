@@ -17,7 +17,7 @@ def gym(request):
     ]
 
     if request.method == "POST":
-
+        button = request.POST.get("action")
         workout_day_post = request.POST.get("workout_day")
         muscle_group_post = request.POST.get("muscle_group")
         exercises_post = request.POST.getlist("exercise[]")
@@ -29,28 +29,38 @@ def gym(request):
             day=workout_day_post
         )
 
-        old_group = MuscleGroup.objects.filter(
-            name=muscle_group_post,
-            workout=workout
-        ).first()
-
-        if old_group:
-            old_group.delete()
-
-        new_muscle_group = MuscleGroup.objects.create(
-            name=muscle_group_post,
-            workout=workout
-        )
-
-        for sets, reps, exercise in zip(sets_post, reps_post, exercises_post):
-            Exercise.objects.create(
-                muscle_group=new_muscle_group,
-                name=exercise,
-                sets=sets,
-                reps=reps
+        if button == "delete":
+            muscle_group = MuscleGroup.objects.filter(
+                workout = workout
             )
 
-        return redirect("gym")
+            muscle_group.get(
+                name=muscle_group_post,
+                workout=workout
+            ).delete()
+        else:
+            old_group = MuscleGroup.objects.filter(
+                name=muscle_group_post,
+                workout=workout
+            ).first()
+
+            if old_group:
+                old_group.delete()
+
+            new_muscle_group = MuscleGroup.objects.create(
+                name=muscle_group_post,
+                workout=workout
+            )
+
+            for sets, reps, exercise in zip(sets_post, reps_post, exercises_post):
+                Exercise.objects.create(
+                    muscle_group=new_muscle_group,
+                    name=exercise,
+                    sets=sets,
+                    reps=reps
+                )
+
+            return redirect("gym")
 
     workouts = Workout.objects.filter(user=user).prefetch_related(
         "muscle_groups__exercises"
