@@ -69,6 +69,7 @@
                             <div id='add-task-btn' class="overlay">
                                 <form class="overlay-container" method="POST">
                                     <div class="close-overlay">
+                                        <div></div>
                                         <button type="button" onclick="closeOverlay('add-task-btn')" class="close-overlay-btn">
                                             X
                                         </button>
@@ -80,7 +81,35 @@
 
                                             <div class="box-confirmation">
                                                 <input class="checkbox" type="checkbox" name="daily_task">
-                                                <p>Daily Task</p>
+                                                <p>Repeat</p>
+                                            </div>
+
+                                            <div>
+                                                <div>
+                                                    <p>Daily</p>
+                                                    <input class="checkbox" type="checkbox" name="daily_task">
+                                                </div>
+                                                <div>
+                                                    <p>Weekly</p>
+                                                    <input class="checkbox" type="checkbox" name="daily_task">
+                                                    <select name="" id="">
+                                                        <option value="">Every Sunday</option>
+                                                        <option value="">Every Monday</option>
+                                                        <option value="">Every Tuesday</option>
+                                                        <option value="">Every Wednesday</option>
+                                                        <option value="">Every Thursday</option>
+                                                        <option value="">Every Friday</option>
+                                                        <option value="">Every Saturday</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <p>Monthly</p>
+                                                    <input class="checkbox" type="checkbox" name="daily_task">
+                                                </div>
+                                                <div>
+                                                    <p>Yearly</p>
+                                                    <input class="checkbox" type="checkbox" name="daily_task">
+                                                </div>
                                             </div>
 
                                             <input
