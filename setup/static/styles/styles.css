@@ -1361,7 +1361,7 @@ footer img{
     padding: 7px;
 }
 .task-overlay-content-time {
-    display: flex;
+    display: none;
     justify-content: space-between;
     width: 300px;
 }
@@ -1452,6 +1452,32 @@ footer img{
     justify-content: space-between;
     height: 100%;
     width: 100%;
+}
+
+.tasks-checkboxes-repeat {
+    display: none;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.tasks-checkboxes-repeat p{
+    font-size: small;
+}
+.tasks-checkboxes-repeat div{
+    width: 50px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tasks-checkboxes-repeat-options {
+    display: none;
+    width: 270px;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: small;
+    align-items: center;
 }
 
 

@@ -79,39 +79,6 @@
                                         <div class="task-overlay-add-content">
                                             <h3>Add Task</h3>
 
-                                            <div class="box-confirmation">
-                                                <input class="checkbox" type="checkbox" name="daily_task">
-                                                <p>Repeat</p>
-                                            </div>
-
-                                            <div>
-                                                <div>
-                                                    <p>Daily</p>
-                                                    <input class="checkbox" type="checkbox" name="daily_task">
-                                                </div>
-                                                <div>
-                                                    <p>Weekly</p>
-                                                    <input class="checkbox" type="checkbox" name="daily_task">
-                                                    <select name="" id="">
-                                                        <option value="">Every Sunday</option>
-                                                        <option value="">Every Monday</option>
-                                                        <option value="">Every Tuesday</option>
-                                                        <option value="">Every Wednesday</option>
-                                                        <option value="">Every Thursday</option>
-                                                        <option value="">Every Friday</option>
-                                                        <option value="">Every Saturday</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <p>Monthly</p>
-                                                    <input class="checkbox" type="checkbox" name="daily_task">
-                                                </div>
-                                                <div>
-                                                    <p>Yearly</p>
-                                                    <input class="checkbox" type="checkbox" name="daily_task">
-                                                </div>
-                                            </div>
-
                                             <input
                                                 type="text"
                                                 name="title"
@@ -134,7 +101,7 @@
                                             >
 
                                             <div class="box-confirmation">
-                                                <input class="checkbox" type="checkbox" name="allow_time">
+                                                <input class="checkbox" type="checkbox" id="allow-time-checkbox">
                                                 <p>Allow time set</p>
                                             </div>
 
@@ -159,6 +126,63 @@
                                                         <input type="number" name="end_minute" min="0" max="59">
                                                     </div>
                                                 </div>
+
+                                            </div>
+
+                                            <div class="box-confirmation">
+                                                <input class="checkbox" type="checkbox" id="repeat-checkbox">
+                                                <p>Repeat</p>
+                                            </div>
+
+                                            <div class="tasks-checkboxes-repeat">
+                                                <div>
+                                                    <p>Weekly</p>
+                                                    <input class="checkbox" type="checkbox" id="weekly-checkbox">
+                                                </div>
+                                                <div>
+                                                    <p>Monthly</p>
+                                                    <input class="checkbox" type="checkbox" id="monthly-checkbox">
+                                                </div>
+                                                <div>
+                                                    <p>Yearly</p>
+                                                    <input class="checkbox" type="checkbox" id="yearly-checkbox">
+                                                </div>
+                                            </div>
+                                            <div class="tasks-checkboxes-repeat-options">
+                                                <label>
+                                                    <input type="checkbox" name="days" value="monday">
+                                                    Monday
+                                                </label><br>
+
+                                                <label>
+                                                    <input type="checkbox" name="days" value="tuesday">
+                                                    Tuesday
+                                                </label><br>
+
+                                                <label>
+                                                    <input type="checkbox" name="days" value="wednesday">
+                                                    Wednesday
+                                                </label><br>
+
+                                                <label>
+                                                    <input type="checkbox" name="days" value="thursday">
+                                                    Thursday
+                                                </label><br>
+
+                                                <label>
+                                                    <input type="checkbox" name="days" value="friday">
+                                                    Friday
+                                                </label><br>
+
+                                                <label>
+                                                    <input type="checkbox" name="days" value="saturday">
+                                                    Saturday
+                                                </label><br>
+
+                                                <label>
+                                                    <input type="checkbox" name="days" value="sunday">
+                                                    Sunday
+                                                </label><br>
 
                                             </div>
 
@@ -377,5 +401,5 @@
             </section>
         </main>
         <script src="{% static 'assets/js/general.js' %}"></script>
-        <script src="{% static 'assets/js/calendar.js' %}"></script>
+        <script src="{% static 'assets/js/tasks.js' %}"></script>
 {% endblock content %}
