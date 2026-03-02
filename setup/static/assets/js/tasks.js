@@ -44,6 +44,10 @@ repeatCheckbox.addEventListener("change", function() {
     }
     else {
         repeatOptions.style.display = "none"
+        weeklyOptions.style.display = "none"
+        weeklyCheckbox.checked = false
+        yearlyCheckbox.checked = false
+        monthlyCheckbox.checked = false
     }
     
 })

@@ -15,7 +15,7 @@ class Workout(models.Model):
     day = models.CharField(max_length=20, choices=WEEK_DAYS)
     
     def __str__(self):
-        return f'{self.user.username.upper()} - {self.day}'
+        return f'{self.day}'
     
 class MuscleGroup(models.Model):
     MUSCLE_GROUP_CHOICES = [

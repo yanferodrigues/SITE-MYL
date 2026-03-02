@@ -12,7 +12,7 @@
                     <a href="{% url "index" %}"><img src="{% static 'assets/icons/dashboard.png' %}"><span>Dashboard</span></a>
                     <a href="{% url "finance" %}"><img src="{% static 'assets/icons/money.png' %}"><span>Finance</span></a>
                     <a href="{% url "gym" %}"><img src="{% static 'assets/icons/gym.png' %}"><span>Gym</span></a>
-                    <a class="active"><img src="{% static 'assets/icons/checklist.png' %}"><span>Tasks</span></a>
+                    <a class="active"><img src="{% static 'assets/icons/checklist.png' %}"><span>tasks</span></a>
                 </nav>
             </aside>
             <button onclick="openNav()" id="openNavegation">
@@ -22,7 +22,7 @@
             <section class="content-box">
                 <div class="content-title-tasks">
                     <img src="{% static 'assets/icons/check.png' %}">
-                    <h3>Tasks</h3>
+                    <h3>Events</h3>
                 </div>
                 <div class="specific-tasks">
                     <div class="specific-tasks-main">
@@ -36,7 +36,7 @@
                                         Next task:
                                     </h4>
                                     <div onclick="openOverlay('pendent-task-overlay')" class="specific-tasks-main-today-now-pendent">
-                                        PENDENT TASK
+                                        PENDENT
                                         <p class="specific-tasks-main-today-now-pendent-description">pendent task description aodfkasdfapodkfapofodpodfopasdofasdofkaodfkapdafsdddddddddddddddddddddddddddddddddddddddddddddd</p>
                                         <p>10:00</p>
                                     </div>
@@ -45,18 +45,18 @@
                                     </button>
                                 </div>
                                 <aside class="specific-tasks-main-today-next">
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
-                                    <p>- Task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
+                                    <p>- task </p>
                                     
                                 </aside>
                             </div>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="specific-tasks-main-btns">
                             <button onclick="openOverlay('add-task-btn')" class="btn-add">
-                                Add task
+                                Add event
                             </button>
                             <div id='add-task-btn' class="overlay">
                                 <form class="overlay-container" method="POST">
@@ -77,7 +77,7 @@
                                     <div class="overlay-container-content">
 
                                         <div class="task-overlay-add-content">
-                                            <h3>Add Task</h3>
+                                            <h3>Add event</h3>
 
                                             <input
                                                 type="text"
@@ -209,21 +209,21 @@
                     <div class="specific-tasks-future">
                         <div onclick="openOverlay('daily-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
                             <h3 class="specific-tasks-title">
-                                Daily Tasks
+                                Daily tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
                             </div>
                         </div>
                         <div id='daily-tasks-overlay' class="overlay">
@@ -272,21 +272,21 @@
                         </div>
                         <div onclick="openOverlay('others-tasks-overlay')" id="others-tasks" class="specific-tasks-future-card" >
                             <h3 class="specific-tasks-title">
-                                Others Tasks
+                                Others tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
                             </div>
                         </div>
                         <div id='others-tasks-overlay' class="overlay">
@@ -335,21 +335,21 @@
                         </div>
                         <div onclick="openOverlay('others-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
                             <h3 class="specific-tasks-title">
-                                Passed Tasks
+                                Passed tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
-                                <p>- Task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
+                                <p>- task </p>
                             </div>
                         </div>
                         <div id='others-tasks-overlay' class="overlay">
