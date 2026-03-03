@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from tasks.models import Events
 from datetime import date
+from django.contrib.auth.models import User
 
 def tasks(request):
+    user = User.objects.get(username = "yanfelipe")
+
     monday = "0"
     tuesday = "1"
     wednesday = "2"
@@ -13,9 +16,9 @@ def tasks(request):
     
     today = date.today()
     
-    general_tasks = Events.objects.all()
+    general_tasks = Events.objects.filter(user = user)
     today_tasks = []
-    for event in Events.objects.all():
+    for event in general_tasks:
         if event.date == today:
             today_tasks.append(event)
         elif event.weekly and today.weekday() in event.weekly_options:
@@ -25,9 +28,9 @@ def tasks(request):
         elif event.yearly and (event.date.day == today.day and event.date.month == today.month):
             today_tasks.append(event)
             
-    weekly_tasks = Events.objects.filter(weekly = True)
-    monthly_tasks = Events.objects.filter(monthly = True)
-    yearly_tasks = Events.objects.filter(yearly = True)
+    weekly_tasks = general_tasks.filter(weekly = True)
+    monthly_tasks = general_tasks.filter(monthly = True)
+    yearly_tasks = general_tasks.filter(yearly = True)
     
     passed_tasks = []
     for event in Events.objects.all():
