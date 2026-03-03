@@ -1333,7 +1333,7 @@ footer img{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: auto;
+    height: 100%;
     align-items: center;
     justify-content: start;
     gap: 30px;
@@ -1361,7 +1361,7 @@ footer img{
     padding: 7px;
 }
 .task-overlay-content-time {
-    display: flex;
+    display: none;
     justify-content: space-between;
     width: 300px;
 }
@@ -1455,7 +1455,7 @@ footer img{
 }
 
 .tasks-checkboxes-repeat {
-    display: flex;
+    display: none;
     gap: 30px;
     justify-content: center;
     align-items: center;

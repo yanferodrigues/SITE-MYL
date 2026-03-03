@@ -66,11 +66,9 @@
                                                     <form method="POST" class="overlay-container-content-gym-form">
                                                         {% csrf_token %}
                                                         <div class="close-overlay">
-                                                            <button type="submit" name="action" value="delete" class="btn-remove">
+                                                            <div></div>
+                                                            <button onclick="removeForm(this)" type="submit" name="action" value="delete" class="btn-remove delete-gym-form">
                                                                 Delete
-                                                            </button>
-                                                            <button type="button" onclick="removeForm(this)" class="btn-less-plus">
-                                                                -
                                                             </button>
                                                         </div>
                                                         <select name="muscle_group" class="overlay-container-content-gym-form-title" required>
@@ -116,11 +114,9 @@
                                                             <form method='POST' class="overlay-container-content-gym-form">
                                                                 {% csrf_token %}
                                                                 <div class="close-overlay">
-                                                                    <button type="submit" name="action" value="delete" class="btn-remove">
+                                                                    <div></div>
+                                                                    <button onclick="removeForm(this)" type="submit" name="action" value="delete" class="btn-remove delete-gym-form">
                                                                         Delete
-                                                                    </button>
-                                                                    <button type="button" onclick="removeForm(this)" class="btn-less-plus">
-                                                                        -
                                                                     </button>
                                                                 </div>
                                                                 <select name="muscle_group" class="overlay-container-content-gym-form-title" required>

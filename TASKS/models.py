@@ -11,6 +11,7 @@ class Events(models.Model):
     yearly = models.BooleanField(default=False)
     weekly_options = models.JSONField(blank=True,null=True, default=list)
     importance = models.CharField(blank=False, null=False)
+    done = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.title}"

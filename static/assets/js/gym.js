@@ -20,11 +20,6 @@ function removeGymRowByButton(button) {
     if (container.children.length > 1) {
         row.remove();
     }
-    else {
-        row.querySelectorAll("input").forEach(input => {
-            input.value = "";
-        })
-    }
 }
 
 function addNewForm(button) {
@@ -63,18 +58,19 @@ function removeForm(button) {
     const form = button.closest(".overlay-container-content-gym-form");
     const container = form.closest(".overlay-gym-general-forms");
 
-    if (container.children.length > 1) {
-        form.remove();
+    const inputExercise = form.querySelector(".gym-exercise")
+    const inputSets = form.querySelector(".gym-sets")
+    const inputReps = form.querySelector(".gym-reps")
+
+    if ( inputExercise.value.trim() && inputReps.value.trim() && inputSets.value.trim()) {
+        button.type = "submit"
     } else {
-        form.querySelectorAll("input").forEach(input => {
-            if (
-                input.name !== "workout_day" &&
-                input.name !== "csrfmiddlewaretoken"
-            ) {
-                input.value = "";
-            }
-        });
+        button.type = "button"
+        if (container.children.length > 1) {
+            form.remove();
+        }
     }
+    
 }
 
 document.addEventListener("input", function (e) {
