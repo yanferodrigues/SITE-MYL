@@ -207,59 +207,36 @@
                         </div>
                     </div>
                     <div class="specific-tasks-future">
-                        <div onclick="openOverlay('others-tasks-overlay')" id="others-tasks" class="specific-tasks-future-card" >
+                        <div onclick="openOverlay('general-tasks-overlay')" id="general-tasks" class="specific-tasks-future-card" >
                             <h3 class="specific-tasks-title">
                                 General tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
+                                {% for task in general_tasks %}
+                                    <p>- {{task.title}} </p>
+                                {% endfor %}
                             </div>
                         </div>
-                        <div id='others-tasks-overlay' class="overlay">
+                        <div id='general-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
-                                    <button onclick="closeOverlay('others-tasks-overlay')" class="close-overlay-btn">
+                                    <button onclick="closeOverlay('general-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
                                 </div>
                                 <div class="overlay-container-content">
                                     <div class="overlay-tasks-general-content">
                                         <div class="general-tasks-overlay">
+                                            {% for task in general_tasks %}
                                             <div class="self-task-card-overlay">
                                                 <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
+                                                    <p class="self-task-card-overlay-title">{{task.title}}</p>
+                                                    <p>~ {{task.time}} ~</p>
+                                                    <p class="self-task-card-overlay-description">{{task.description}}</p>
                                                     <button class="btn-remove">Remove</button>
                                                 </div>
                                             </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                         <div class="overlay-container-content-save">
                                             <button type="submit" class="btn-save">
@@ -270,7 +247,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div onclick="openOverlay('daily-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
+                        <div onclick="openOverlay('weekly-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
                             <h3 class="specific-tasks-title">
                                 Weekly tasks
                             </h3>
@@ -289,10 +266,10 @@
                                 <p>- task </p>
                             </div>
                         </div>
-                        <div id='daily-tasks-overlay' class="overlay">
+                        <div id='weekly-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
-                                    <button onclick="closeOverlay('daily-tasks-overlay')" class="close-overlay-btn">
+                                    <button onclick="closeOverlay('weekly-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
                                 </div>
@@ -333,7 +310,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div onclick="openOverlay('daily-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
+                        <div onclick="openOverlay('monthly-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
                             <h3 class="specific-tasks-title">
                                 Monthly tasks
                             </h3>
@@ -352,10 +329,10 @@
                                 <p>- task </p>
                             </div>
                         </div>
-                        <div id='daily-tasks-overlay' class="overlay">
+                        <div id='monthly-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
-                                    <button onclick="closeOverlay('daily-tasks-overlay')" class="close-overlay-btn">
+                                    <button onclick="closeOverlay('monthly-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
                                 </div>
@@ -396,7 +373,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div onclick="openOverlay('daily-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
+                        <div onclick="openOverlay('yearly-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
                             <h3 class="specific-tasks-title">
                                 Yearly tasks
                             </h3>
@@ -415,10 +392,10 @@
                                 <p>- task </p>
                             </div>
                         </div>
-                        <div id='daily-tasks-overlay' class="overlay">
+                        <div id='yearly-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
-                                    <button onclick="closeOverlay('daily-tasks-overlay')" class="close-overlay-btn">
+                                    <button onclick="closeOverlay('yearly-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
                                 </div>
@@ -459,7 +436,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div onclick="openOverlay('others-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
+                        <div onclick="openOverlay('passed-tasks-overlay')" id="daily-tasks" class="specific-tasks-future-card">
                             <h3 class="specific-tasks-title">
                                 Passed tasks
                             </h3>
@@ -478,7 +455,7 @@
                                 <p>- task </p>
                             </div>
                         </div>
-                        <div id='others-tasks-overlay' class="overlay">
+                        <div id='passed-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
                                     <button onclick="closeOverlay('passed-tasks-overlay')" class="close-overlay-btn">
