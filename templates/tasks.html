@@ -220,6 +220,7 @@
                         <div id='general-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
+                                    <div></div>
                                     <button onclick="closeOverlay('general-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
@@ -228,20 +229,39 @@
                                     <div class="overlay-tasks-general-content">
                                         <div class="general-tasks-overlay">
                                             {% for task in general_tasks %}
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">{{task.title}}</p>
-                                                    <p>~ {{task.time}} ~</p>
-                                                    <p class="self-task-card-overlay-description">{{task.description}}</p>
-                                                    <button class="btn-remove">Remove</button>
+                                                <div class="self-task-card-overlay">
+                                                    <div class="self-task-card-overlay-content">
+                                                        <p class="self-task-card-overlay-title">{{task.title}}</p>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Date:</p>
+                                                            <p>{{task.date}}</p>
+                                                            <p>~ {{task.time}} ~</p>
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Description:</p>
+                                                            <p>{{task.description}}</p>
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Repeats:</p>
+                                                            {% if task.weekly %}
+                                                                {% for repeat in task.weekly_options %}
+                                                                    <p>Every {{repeat|title}}</p>
+                                                                {% endfor %}
+
+                                                                {% elif task.monthly %}
+                                                                    <p>Every {{task.date.day}}/{{task.date.month}}</p>
+                                                                
+                                                                {% elif task.yearly %}
+                                                                    <p>Every {{task.date}}</p>
+                                                                {% else %}
+                                                                    <p>No repeat</p>
+
+                                                            {% endif %}
+                                                        </div>
+                                                        <button class="btn-remove">Remove</button>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             {% endfor %}
-                                        </div>
-                                        <div class="overlay-container-content-save">
-                                            <button type="submit" class="btn-save">
-                                                Save
-                                            </button>
                                         </div>
                                     </div> 
                                 </div>

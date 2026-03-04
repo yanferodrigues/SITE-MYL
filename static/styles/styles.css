@@ -1407,8 +1407,8 @@ footer img{
 }
 .self-task-card-overlay {
     display: flex;
-    width: 230px;
-    height: 150px;
+    width: 300px;
+    height: 210px;
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 15px;
@@ -1420,6 +1420,7 @@ footer img{
     overflow-wrap: break-word;
     white-space: normal;
 }
+
 .self-task-card-overlay-content {
     display: flex;
     flex-direction: column;
@@ -1428,6 +1429,7 @@ footer img{
     height: auto;
     overflow-y: auto;
     overflow-x: hidden;
+    gap: 10px
 }
 .self-task-card-overlay-title {
     display: flex;
@@ -1441,10 +1443,14 @@ footer img{
     text-justify: distribute;
     margin-bottom: 5px;
 }
-.self-task-card-overlay-description {
-    margin-top: 5px;
+.self-task-card-overlay-information {
+    padding: 20px;
     color: #646464;
-    margin-bottom: 5px;
+}
+
+.self-task-card-overlay-titles{
+    color: black;
+    padding-bottom: 5px;
 }
 .overlay-tasks-general-content {
     display: flex;

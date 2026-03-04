@@ -5,23 +5,26 @@ from django.contrib.auth.models import User
 
 def tasks(request):
     user = User.objects.get(username = "yanfelipe")
-
-    monday = "0"
-    tuesday = "1"
-    wednesday = "2"
-    thursday = "3"
-    friday = "4"
-    saturday = "5"
-    sunday = "6"
-    
     today = date.today()
-    
     general_tasks = Events.objects.filter(user = user)
+
+    days_map = {
+            "MONDAY": 0,
+            "TUESDAY": 1,
+            "WEDNESDAY": 2,
+            "THURSDAY": 3,
+            "FRIDAY": 4,
+            "SATURDAY": 5,
+            "SUNDAY": 6,
+    }
     today_tasks = []
     for event in general_tasks:
+        repeat_list = []
+        for option in event.weekly_options:
+            repeat_list.append(days_map.get(option))
         if event.date == today:
             today_tasks.append(event)
-        elif event.weekly and today.weekday() in event.weekly_options:
+        elif event.weekly and today.weekday() in repeat_list:
             today_tasks.append(event)
         elif event.monthly and event.date.day == today.day:
             today_tasks.append(event)
