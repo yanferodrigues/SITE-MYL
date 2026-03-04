@@ -188,7 +188,7 @@
 
                                             <select name="priority" required>
                                                 <option value="" disabled selected hidden></option>
-                                                <option value="light">Light importance 🟦</option>
+                                                <option value="light">Low importance 🟦</option>
                                                 <option value="medium">Medium importance 🟨</option>
                                                 <option value="high">Very important 🟥</option>
                                             </select>
@@ -230,12 +230,32 @@
                                         <div class="general-tasks-overlay">
                                             {% for task in general_tasks %}
                                                 <div class="self-task-card-overlay">
-                                                    <div class="self-task-card-overlay-content">
-                                                        <p class="self-task-card-overlay-title">{{task.title}}</p>
+                                                    <p class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-importance-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-importance-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-importance-high
+                                                        {% endif %}>
+                                                    ">- {{ task.importance|title}} -</p>
+                                                    <div class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-content-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-content-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-content-high
+                                                        {% endif %}">
+                                                        <p class="self-task-card-overlay-title">
+                                                            {{task.title}} <br>
+                                                        </p>
                                                         <div class="self-task-card-overlay-information">
                                                             <p class="self-task-card-overlay-titles">Date:</p>
                                                             <p>{{task.date}}</p>
-                                                            <p>~ {{task.time}} ~</p>
+                                                            {% if task.time %}
+                                                                <p>~ {{task.time}} ~</p>
+                                                            {% endif %}
                                                         </div>
                                                         <div class="self-task-card-overlay-information">
                                                             <p class="self-task-card-overlay-titles">Description:</p>

@@ -1407,21 +1407,38 @@ footer img{
 }
 .self-task-card-overlay {
     display: flex;
+    flex-direction: column;
     width: 300px;
     height: 210px;
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 15px;
-    border: solid #cecece 1px;
-    padding: 8px;
+    color: white;
     text-align: center;
     text-align: center;
     word-break: break-word;
     overflow-wrap: break-word;
     white-space: normal;
 }
-
-.self-task-card-overlay-content {
+.self-task-card-overlay-importance-low {
+    color: white;
+    background-color:rgb(130, 199, 255) ;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.self-task-card-overlay-importance-middle {
+    color: white;
+    background-color:#e2d84b; 
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.self-task-card-overlay-importance-high {
+    color: white;
+    background-color:rgb(245, 98, 98) ;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.self-task-card-overlay-content-low {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -1429,19 +1446,50 @@ footer img{
     height: auto;
     overflow-y: auto;
     overflow-x: hidden;
-    gap: 10px
+    gap: 10px;
+    border: solid 3px rgb(130, 199, 255);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
+
+.self-task-card-overlay-content-middle {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 10px;
+    border: solid 3px #e2d84b;;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.self-task-card-overlay-content-high {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 10px;
+    border: solid 3px rgb(245, 98, 98);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 .self-task-card-overlay-title {
     display: flex;
     width: 100%;
     flex-direction: column;
-    background-color: var(--dark);
-    border-radius: 15px ;
-    color: white;
+    color: black;
     padding: 5px;
     text-align: center;
     text-justify: distribute;
     margin-bottom: 5px;
+    border-bottom: rgb(130, 199, 255);
+    border-bottom: solid 1px rgb(216, 216, 216);
 }
 .self-task-card-overlay-information {
     padding: 20px;
