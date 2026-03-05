@@ -825,12 +825,15 @@ footer img{
     width: 100%;
     margin-top: 20px;
 }
+.specific-tasks-main-today-now-pendent h4{
+    font-weight: 500;
+}
 .specific-tasks-main-today-now-pendent-description {
     display: flex;
     font-size: smaller;
     color: #5e5e5e;
     max-width: 60%;
-    min-height: 100px;
+    height: auto;
     text-align: center;
     text-align: center;
     word-break: break-word;
@@ -1444,6 +1447,12 @@ footer img{
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
 }
+.self-task-card-overlay-importance-done {
+    color: black;
+    background-color:rgb(106, 255, 113) ;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
 .self-task-card-overlay-content-low {
     display: flex;
     flex-direction: column;
@@ -1494,6 +1503,19 @@ footer img{
     overflow-x: hidden;
     gap: 10px;
     border:rgb(160, 160, 160) solid 1px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.self-task-card-overlay-content-done {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 10px;
+    border:rgb(106, 255, 113) solid 1px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }

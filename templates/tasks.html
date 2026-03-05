@@ -179,9 +179,13 @@
                                         Next task:
                                     </h4>
                                     <div onclick="openOverlay('pendent-task-overlay')" class="specific-tasks-main-today-now-pendent">
-                                        PENDENT
-                                        <p class="specific-tasks-main-today-now-pendent-description">pendent task description aodfkasdfapodkfapofodpodfopasdofasdofkaodfkapdafsdddddddddddddddddddddddddddddddddddddddddddddd</p>
-                                        <p>10:00</p>
+                                        {% if pendent_task %}
+                                            <h4>{{pendent_task.title}}</h4>
+                                            <p class="specific-tasks-main-today-now-pendent-description">{{pendent_task.description}}</p>
+                                            <p>- {{pendent_task.time}} -</p>
+                                            {% else %}
+                                            EVENT NOT FOUND
+                                        {% endif %}
                                     </div>
                                     <button class="btn-save">
                                         Done
@@ -574,10 +578,22 @@
                                         <div class="general-tasks-overlay">
                                             {% for task in passed_tasks %}
                                                 <div class="self-task-card-overlay">
-                                                    <p class="self-task-card-overlay-importance-passed">
-                                                        - PASSED -
-                                                    </p>
-                                                    <div class="self-task-card-overlay-content-passed">
+                                                    {% if task.done %}
+                                                        <p class="self-task-card-overlay-importance-passed">
+                                                            - PASSED -
+                                                        </p>
+                                                        {% else %}
+                                                        <p class="self-task-card-overlay-importance-done">
+                                                            - DONE -
+                                                        </p>
+                                                    {% endif %}
+                                                    <div class="
+                                                    {% if task.done %}
+                                                        self-task-card-overlay-content-passed
+                                                        {% else %}
+                                                        self-task-card-overlay-content-done
+                                                    {% endif %}
+                                                    ">
                                                         <p class="self-task-card-overlay-title">
                                                             {{task.title}} <br>
                                                         </p>

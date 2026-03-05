@@ -766,7 +766,7 @@ footer img{
 .specific-tasks-main {
     width: 90%;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -830,7 +830,7 @@ footer img{
     font-size: smaller;
     color: #5e5e5e;
     max-width: 60%;
-    min-height: 100px;
+    height: auto;
     text-align: center;
     text-align: center;
     word-break: break-word;

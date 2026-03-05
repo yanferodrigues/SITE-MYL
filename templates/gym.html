@@ -61,7 +61,7 @@
                                         </div>
 
                                         <div class="overlay-container-content">
-                                            {% if day.workout.muscle_groups.count < 1 %}
+                                            {% if day.workout.muscle_groups.all|length < 1 %}
                                                 <div class="overlay-gym-general-forms">
                                                     <form method="POST" class="overlay-container-content-gym-form">
                                                         {% csrf_token %}

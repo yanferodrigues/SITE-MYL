@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 def tasks(request):
     user = User.objects.get(username = "yanfelipe")
-    all_tasks = Events.objects.filter(user = user) 
+    all_tasks = Events.objects.filter(user = user).order_by("date","time") 
     today = date.today()
     days_map = {
             "MONDAY": 0,
@@ -50,6 +50,8 @@ def tasks(request):
             today_tasks.append(event)
 
 
+    pendent_task = today_tasks[0]
+
     weekly_tasks = all_tasks.filter(weekly = True)
 
 
@@ -62,6 +64,7 @@ def tasks(request):
     return render(request, "tasks.html", {
         "general_tasks":general_tasks,
         "today_tasks":today_tasks,
+        "pendent_task":pendent_task,
         "weekly_tasks":weekly_tasks,
         "monthly_tasks":monthly_tasks,
         "yearly_tasks":yearly_tasks,
