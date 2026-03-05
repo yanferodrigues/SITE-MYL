@@ -766,7 +766,7 @@ footer img{
 .specific-tasks-main {
     width: 90%;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -1438,6 +1438,12 @@ footer img{
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
 }
+.self-task-card-overlay-importance-passed {
+    color: black;
+    background-color:rgb(160, 160, 160) ;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
 .self-task-card-overlay-content-low {
     display: flex;
     flex-direction: column;
@@ -1475,6 +1481,19 @@ footer img{
     overflow-x: hidden;
     gap: 10px;
     border: solid 3px rgb(245, 98, 98);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.self-task-card-overlay-content-passed {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 10px;
+    border:rgb(160, 160, 160) solid 1px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -1566,7 +1585,7 @@ footer img{
         height: 250px;
     }
     .specific-tasks-main {
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
     .specific-tasks-main-today {

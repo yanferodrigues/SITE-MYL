@@ -26,42 +26,6 @@
                 </div>
                 <div class="specific-tasks">
                     <div class="specific-tasks-main">
-                        <div class="specific-tasks-main-today">
-                            <h3 class="specific-tasks-title">
-                                Today
-                            </h3>
-                            <div class="specific-tasks-main-today-content">
-                                <div class="specific-tasks-main-today-now">
-                                    <h4 class="specific-tasks-main-today-now-title">
-                                        Next task:
-                                    </h4>
-                                    <div onclick="openOverlay('pendent-task-overlay')" class="specific-tasks-main-today-now-pendent">
-                                        PENDENT
-                                        <p class="specific-tasks-main-today-now-pendent-description">pendent task description aodfkasdfapodkfapofodpodfopasdofasdofkaodfkapdafsdddddddddddddddddddddddddddddddddddddddddddddd</p>
-                                        <p>10:00</p>
-                                    </div>
-                                    <button class="btn-save">
-                                        Done
-                                    </button>
-                                </div>
-                                <aside class="specific-tasks-main-today-next">
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    <p>- task </p>
-                                    
-                                </aside>
-                            </div>
-                            
-                        </div>
                         <div class="specific-tasks-main-btns">
                             <button onclick="openOverlay('add-task-btn')" class="btn-add">
                                 Add event
@@ -205,6 +169,37 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="specific-tasks-main-today">
+                            <h3 class="specific-tasks-title">
+                                Today
+                            </h3>
+                            <div class="specific-tasks-main-today-content">
+                                <div class="specific-tasks-main-today-now">
+                                    <h4 class="specific-tasks-main-today-now-title">
+                                        Next task:
+                                    </h4>
+                                    <div onclick="openOverlay('pendent-task-overlay')" class="specific-tasks-main-today-now-pendent">
+                                        PENDENT
+                                        <p class="specific-tasks-main-today-now-pendent-description">pendent task description aodfkasdfapodkfapofodpodfopasdofasdofkaodfkapdafsdddddddddddddddddddddddddddddddddddddddddddddd</p>
+                                        <p>10:00</p>
+                                    </div>
+                                    <button class="btn-save">
+                                        Done
+                                    </button>
+                                </div>
+                                <aside class="specific-tasks-main-today-next">
+                                    {% if today_tasks %}
+                                        {% for task in today_tasks %}
+                                            <p>- {{task.title}} </p>
+                                        {% endfor %} 
+                                        {% else %}
+                                            <div class="not-found">
+                                                EVENTS NOT FOUND
+                                            </div>
+                                    {% endif %}
+                                </aside>
+                            </div>
+                        </div>
                     </div>
                     <div class="specific-tasks-future">
                         <div onclick="openOverlay('general-tasks-overlay')" id="general-tasks" class="specific-tasks-future-card" >
@@ -212,9 +207,15 @@
                                 General tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                {% for task in general_tasks %}
-                                    <p>- {{task.title}} </p>
-                                {% endfor %}
+                                {% if general_tasks %}
+                                    {% for task in general_tasks %}
+                                        <p>- {{task.title}} </p>
+                                    {% endfor %} 
+                                    {% else %}
+                                        <div class="not-found">
+                                            EVENTS NOT FOUND
+                                        </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div id='general-tasks-overlay' class="overlay">
@@ -269,10 +270,10 @@
                                                                 {% endfor %}
 
                                                                 {% elif task.monthly %}
-                                                                    <p>Every {{task.date.day}}/{{task.date.month}}</p>
+                                                                    <p>Every {{task.date.day}}th</p>
                                                                 
                                                                 {% elif task.yearly %}
-                                                                    <p>Every {{task.date}}</p>
+                                                                    <p>Every {{task.date.day}}/{{task.date.month}}</p>
                                                                 {% else %}
                                                                     <p>No repeat</p>
 
@@ -292,23 +293,21 @@
                                 Weekly tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
+                                {% if weekly_tasks %}
+                                    {% for task in weekly_tasks %}
+                                        <p>- {{task.title}} </p>
+                                    {% endfor %} 
+                                    {% else %}
+                                        <div class="not-found">
+                                            EVENTS NOT FOUND
+                                        </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div id='weekly-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
+                                    <div></div>
                                     <button onclick="closeOverlay('weekly-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
@@ -316,35 +315,60 @@
                                 <div class="overlay-container-content">
                                     <div class="overlay-tasks-general-content">
                                         <div class="general-tasks-overlay">
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
+                                            {% for task in weekly_tasks %}
+                                                <div class="self-task-card-overlay">
+                                                    <p class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-importance-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-importance-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-importance-high
+                                                        {% endif %}>
+                                                    ">- {{ task.importance|title}} -</p>
+                                                    <div class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-content-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-content-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-content-high
+                                                        {% endif %}">
+                                                        <p class="self-task-card-overlay-title">
+                                                            {{task.title}} <br>
+                                                        </p>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Date:</p>
+                                                            <p>{{task.date}}</p>
+                                                            {% if task.time %}
+                                                                <p>~ {{task.time}} ~</p>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Description:</p>
+                                                            <p>{{task.description}}</p>
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Repeats:</p>
+                                                            {% if task.weekly %}
+                                                                {% for repeat in task.weekly_options %}
+                                                                    <p>Every {{repeat|title}}</p>
+                                                                {% endfor %}
+
+                                                                {% elif task.monthly %}
+                                                                    <p>Every {{task.date.day}}th</p>
+                                                                
+                                                                {% elif task.yearly %}
+                                                                    <p>Every {{task.date.day}}/{{task.date.month}}</p>
+                                                                {% else %}
+                                                                    <p>No repeat</p>
+
+                                                            {% endif %}
+                                                        </div>
+                                                        <button class="btn-remove">Remove</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="overlay-container-content-save">
-                                            <button type="submit" class="btn-save">
-                                                Save
-                                            </button>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -355,23 +379,21 @@
                                 Monthly tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
+                                {% if monthly_tasks %}
+                                    {% for task in monthly_tasks %}
+                                        <p>- {{task.title}} </p>
+                                    {% endfor %} 
+                                    {% else %}
+                                        <div class="not-found">
+                                            EVENTS NOT FOUND
+                                        </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div id='monthly-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
+                                    <div></div>
                                     <button onclick="closeOverlay('monthly-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
@@ -379,35 +401,60 @@
                                 <div class="overlay-container-content">
                                     <div class="overlay-tasks-general-content">
                                         <div class="general-tasks-overlay">
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
+                                            {% for task in monthly_tasks %}
+                                                <div class="self-task-card-overlay">
+                                                    <p class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-importance-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-importance-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-importance-high
+                                                        {% endif %}>
+                                                    ">- {{ task.importance|title}} -</p>
+                                                    <div class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-content-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-content-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-content-high
+                                                        {% endif %}">
+                                                        <p class="self-task-card-overlay-title">
+                                                            {{task.title}} <br>
+                                                        </p>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Date:</p>
+                                                            <p>{{task.date}}</p>
+                                                            {% if task.time %}
+                                                                <p>~ {{task.time}} ~</p>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Description:</p>
+                                                            <p>{{task.description}}</p>
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Repeats:</p>
+                                                            {% if task.weekly %}
+                                                                {% for repeat in task.weekly_options %}
+                                                                    <p>Every {{repeat|title}}</p>
+                                                                {% endfor %}
+
+                                                                {% elif task.monthly %}
+                                                                    <p>Every {{task.date.day}}th</p>
+                                                                
+                                                                {% elif task.yearly %}
+                                                                    <p>Every {{task.date.day}}/{{task.date.month}}</p>
+                                                                {% else %}
+                                                                    <p>No repeat</p>
+
+                                                            {% endif %}
+                                                        </div>
+                                                        <button class="btn-remove">Remove</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="overlay-container-content-save">
-                                            <button type="submit" class="btn-save">
-                                                Save
-                                            </button>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -418,23 +465,21 @@
                                 Yearly tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
+                                {% if yearly_tasks %}
+                                    {% for task in yearly_tasks %}
+                                        <p>- {{task.title}} </p>
+                                    {% endfor %} 
+                                    {% else %}
+                                        <div class="not-found">
+                                            EVENTS NOT FOUND
+                                        </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div id='yearly-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
+                                    <div></div>
                                     <button onclick="closeOverlay('yearly-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
@@ -442,35 +487,60 @@
                                 <div class="overlay-container-content">
                                     <div class="overlay-tasks-general-content">
                                         <div class="general-tasks-overlay">
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
+                                            {% for task in yearly_tasks %}
+                                                <div class="self-task-card-overlay">
+                                                    <p class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-importance-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-importance-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-importance-high
+                                                        {% endif %}>
+                                                    ">- {{ task.importance|title}} -</p>
+                                                    <div class="
+                                                        {% if task.importance == 'LOW IMPORTANCE'%}
+                                                        self-task-card-overlay-content-low
+                                                        {% elif task.importance == 'MIDDLE IMPORTANCE' %}
+                                                        self-task-card-overlay-content-middle
+                                                        {% else %}
+                                                        self-task-card-overlay-content-high
+                                                        {% endif %}">
+                                                        <p class="self-task-card-overlay-title">
+                                                            {{task.title}} <br>
+                                                        </p>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Date:</p>
+                                                            <p>{{task.date}}</p>
+                                                            {% if task.time %}
+                                                                <p>~ {{task.time}} ~</p>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Description:</p>
+                                                            <p>{{task.description}}</p>
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Repeats:</p>
+                                                            {% if task.weekly %}
+                                                                {% for repeat in task.weekly_options %}
+                                                                    <p>Every {{repeat|title}}</p>
+                                                                {% endfor %}
+
+                                                                {% elif task.monthly %}
+                                                                    <p>Every {{task.date.day}}th</p>
+                                                                
+                                                                {% elif task.yearly %}
+                                                                    <p>Every {{task.date.day}}/{{task.date.month}}</p>
+                                                                {% else %}
+                                                                    <p>No repeat</p>
+
+                                                            {% endif %}
+                                                        </div>
+                                                        <button class="btn-remove">Remove</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="overlay-container-content-save">
-                                            <button type="submit" class="btn-save">
-                                                Save
-                                            </button>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -481,18 +551,15 @@
                                 Passed tasks
                             </h3>
                             <div class="specific-tasks-future-card-content">
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
-                                <p>- task </p>
+                                {% if passed_tasks %}
+                                    {% for task in passed_tasks %}
+                                        <p>- {{task.title}} </p>
+                                    {% endfor %} 
+                                    {% else %}
+                                        <div class="not-found">
+                                            EVENTS NOT FOUND
+                                        </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div id='passed-tasks-overlay' class="overlay">
@@ -505,35 +572,47 @@
                                 <div class="overlay-container-content">
                                     <div class="overlay-tasks-general-content">
                                         <div class="general-tasks-overlay">
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
+                                            {% for task in passed_tasks %}
+                                                <div class="self-task-card-overlay">
+                                                    <p class="self-task-card-overlay-importance-passed">
+                                                        - PASSED -
+                                                    </p>
+                                                    <div class="self-task-card-overlay-content-passed">
+                                                        <p class="self-task-card-overlay-title">
+                                                            {{task.title}} <br>
+                                                        </p>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Date:</p>
+                                                            <p>{{task.date}}</p>
+                                                            {% if task.time %}
+                                                                <p>~ {{task.time}} ~</p>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Description:</p>
+                                                            <p>{{task.description}}</p>
+                                                        </div>
+                                                        <div class="self-task-card-overlay-information">
+                                                            <p class="self-task-card-overlay-titles">Repeats:</p>
+                                                            {% if task.weekly %}
+                                                                {% for repeat in task.weekly_options %}
+                                                                    <p>Every {{repeat|title}}</p>
+                                                                {% endfor %}
+
+                                                                {% elif task.monthly %}
+                                                                    <p>Every {{task.date.day}}th</p>
+                                                                
+                                                                {% elif task.yearly %}
+                                                                    <p>Every {{task.date.day}}/{{task.date.month}}</p>
+                                                                {% else %}
+                                                                    <p>No repeat</p>
+
+                                                            {% endif %}
+                                                        </div>
+                                                        <button class="btn-remove">Remove</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                            <div class="self-task-card-overlay">
-                                                <div class="self-task-card-overlay-content">
-                                                    <p class="self-task-card-overlay-title">Title</p>
-                                                    <p>~ 10:00 AM ~</p>
-                                                    <p class="self-task-card-overlay-description">description description description description description description description description</p>
-                                                    <button class="btn-remove">Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="overlay-container-content-save">
-                                            <button type="submit" class="btn-save">
-                                                Save
-                                            </button>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
