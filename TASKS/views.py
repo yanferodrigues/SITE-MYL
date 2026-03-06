@@ -49,8 +49,10 @@ def tasks(request):
         elif event.yearly and (event.date.day == today.day and event.date.month == today.month):
             today_tasks.append(event)
 
-
-    pendent_task = today_tasks[0]
+    if today_tasks:
+        pendent_task = today_tasks[0]
+    else:
+        pendent_task = []
 
     weekly_tasks = all_tasks.filter(weekly = True)
 

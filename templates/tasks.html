@@ -12,7 +12,7 @@
                     <a href="{% url "index" %}"><img src="{% static 'assets/icons/dashboard.png' %}"><span>Dashboard</span></a>
                     <a href="{% url "finance" %}"><img src="{% static 'assets/icons/money.png' %}"><span>Finance</span></a>
                     <a href="{% url "gym" %}"><img src="{% static 'assets/icons/gym.png' %}"><span>Gym</span></a>
-                    <a class="active"><img src="{% static 'assets/icons/checklist.png' %}"><span>tasks</span></a>
+                    <a class="active"><img src="{% static 'assets/icons/checklist.png' %}"><span>Events</span></a>
                 </nav>
             </aside>
             <button onclick="openNav()" id="openNavegation">
@@ -569,6 +569,7 @@
                         <div id='passed-tasks-overlay' class="overlay">
                             <div class="overlay-container">
                                 <div class="close-overlay">
+                                    <div></div>
                                     <button onclick="closeOverlay('passed-tasks-overlay')" class="close-overlay-btn">
                                         X
                                     </button>
@@ -579,12 +580,12 @@
                                             {% for task in passed_tasks %}
                                                 <div class="self-task-card-overlay">
                                                     {% if task.done %}
-                                                        <p class="self-task-card-overlay-importance-passed">
-                                                            - PASSED -
-                                                        </p>
-                                                        {% else %}
                                                         <p class="self-task-card-overlay-importance-done">
                                                             - DONE -
+                                                        </p>
+                                                        {% else %}
+                                                        <p class="self-task-card-overlay-importance-passed">
+                                                            - PASSED -
                                                         </p>
                                                     {% endif %}
                                                     <div class="
