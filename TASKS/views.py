@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from tasks.models import Events
 from datetime import date
 from django.contrib.auth.models import User
+from tasks.models import Events
 
 def tasks(request):
     user = User.objects.get(username = "yanfelipe")
@@ -16,6 +17,53 @@ def tasks(request):
             "SATURDAY": 5,
             "SUNDAY": 6,
     }
+
+    if request.method == "POST":
+        button = request.POST.get("action")
+        task_title = request.POST.get("task_title")
+        task_description = request.POST.get("task_description")
+        task_date = request.POST.get("task_date")
+        task_time = f"{request.POST.get("start_hour")}:{request.POST.get("start_minute")}:00"
+        task_repeat = True if request.POST.get("task_repeat") == "on" else False
+        task_weekly = True if request.POST.get("task_weekly") == "on" else False
+        task_monthly = True if request.POST.get("task_monthly") == "on" else False
+        task_yearly = True if request.POST.get("task_yearly") == "on" else False
+        task_weekly_options = request.POST.getlist("days") or "NO WEEKDAYS REPEATS"
+        task_importance = request.POST.get("task_priority")
+        current_task_title = request.POST.get("current_task_title")
+
+            # user = models.ForeignKey(User, related_name="events", on_delete=models.CASCADE)
+            # title = models.CharField(max_length=25, blank=False)
+            # description = models.TextField(blank=False)
+            # date = models.DateField(blank=False, null=False)
+            # time = models.TimeField(blank=True, null=True)
+            # repeat = models.BooleanField(default=False)
+            # weekly = models.BooleanField(default=False)
+            # monthly = models.BooleanField(default=False)
+            # yearly = models.BooleanField(default=False)
+            # weekly_options = models.JSONField(blank=True,null=True, default=list)
+            # importance = models.CharField(blank=False, null=False)
+            # done = models.BooleanField(default=False)
+        if button == "save":
+            Events.objects.create(
+                user = user,
+                title = task_title,
+                description = task_description,
+                date = task_date,
+                time = task_time,
+                repeat = task_repeat,
+                weekly = task_weekly,
+                monthly = task_monthly,
+                yearly = task_yearly,
+                weekly_options = task_weekly_options,
+                importance = task_importance,
+                done = False
+            )
+        elif button == "done":
+            current_task = Events.objects.filter(title = current_task_title, user = user).update(done=True)
+        
+        return redirect("tasks")
+        
 
 
     passed_tasks = []

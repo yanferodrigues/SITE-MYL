@@ -1365,8 +1365,7 @@ footer img{
 }
 .task-overlay-content-time {
     display: none;
-    justify-content: space-between;
-    width: 300px;
+    justify-content: center;
 }
 .task-overlay-content-time p{
     display: flex;

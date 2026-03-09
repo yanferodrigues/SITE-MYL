@@ -1362,8 +1362,8 @@ footer img{
 }
 .task-overlay-content-time {
     display: none;
-    justify-content: space-between;
-    width: 300px;
+    justify-content: center;
+    align-items: center;
 }
 .task-overlay-content-time p{
     display: flex;
@@ -1381,7 +1381,7 @@ footer img{
     margin-bottom: 5px;
 }
 
-#task-overlay-content-hour-start, #task-overlay-content-hour-end{
+#task-overlay-content-hour-start{
     display: flex;
     gap: 5px;
 }

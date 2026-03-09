@@ -32,6 +32,7 @@
                             </button>
                             <div id='add-task-btn' class="overlay">
                                 <form class="overlay-container" method="POST">
+                                    {% csrf_token %}
                                     <div class="close-overlay">
                                         <div></div>
                                         <button type="button" onclick="closeOverlay('add-task-btn')" class="close-overlay-btn">
@@ -45,14 +46,14 @@
 
                                             <input
                                                 type="text"
-                                                name="title"
+                                                name="task_title"
                                                 placeholder="Title:"
                                                 class="add-task-text-input"
                                                 required
                                             >
 
                                             <textarea
-                                                name="description"
+                                                name="task_description"
                                                 id="task-description"
                                                 placeholder="Description:"
                                             ></textarea>
@@ -70,96 +71,83 @@
                                             </div>
 
                                             <div class="task-overlay-content-time">
-
                                                 <div class="task-overlay-content-hour">
-                                                    <label>Start</label>
+                                                    <label>Starts at:</label>
                                                     <div id="task-overlay-content-hour-start">
                                                         <input type="number" name="start_hour" min="0" max="23">
                                                         <p>:</p>
                                                         <input type="number" name="start_minute" min="0" max="59">
                                                     </div>
                                                 </div>
-
-                                                <p>-</p>
-
-                                                <div class="task-overlay-content-hour">
-                                                    <label>End</label>
-                                                    <div id="task-overlay-content-hour-end">
-                                                        <input type="number" name="end_hour" min="0" max="23">
-                                                        <p>:</p>
-                                                        <input type="number" name="end_minute" min="0" max="59">
-                                                    </div>
-                                                </div>
-
                                             </div>
 
                                             <div class="box-confirmation">
-                                                <input class="checkbox" type="checkbox" id="repeat-checkbox">
+                                                <input name="task_repeat" class="checkbox" type="checkbox" id="repeat-checkbox">
                                                 <p>Repeat</p>
                                             </div>
 
                                             <div class="tasks-checkboxes-repeat">
                                                 <div>
                                                     <p>Weekly</p>
-                                                    <input class="checkbox" type="checkbox" id="weekly-checkbox">
+                                                    <input name="task_weekly" class="checkbox" type="checkbox" id="weekly-checkbox">
                                                 </div>
                                                 <div>
                                                     <p>Monthly</p>
-                                                    <input class="checkbox" type="checkbox" id="monthly-checkbox">
+                                                    <input name="task_monthly" class="checkbox" type="checkbox" id="monthly-checkbox">
                                                 </div>
                                                 <div>
                                                     <p>Yearly</p>
-                                                    <input class="checkbox" type="checkbox" id="yearly-checkbox">
+                                                    <input name="task_yearly" class="checkbox" type="checkbox" id="yearly-checkbox">
                                                 </div>
                                             </div>
                                             <div class="tasks-checkboxes-repeat-options">
                                                 <label>
-                                                    <input type="checkbox" name="days" value="monday">
+                                                    <input type="checkbox" name="days" value="MONDAY">
                                                     Monday
                                                 </label><br>
 
                                                 <label>
-                                                    <input type="checkbox" name="days" value="tuesday">
+                                                    <input type="checkbox" name="days" value="TUESDAY">
                                                     Tuesday
                                                 </label><br>
 
                                                 <label>
-                                                    <input type="checkbox" name="days" value="wednesday">
+                                                    <input type="checkbox" name="days" value="WEDNESDAY">
                                                     Wednesday
                                                 </label><br>
 
                                                 <label>
-                                                    <input type="checkbox" name="days" value="thursday">
+                                                    <input type="checkbox" name="days" value="THURSDAY">
                                                     Thursday
                                                 </label><br>
 
                                                 <label>
-                                                    <input type="checkbox" name="days" value="friday">
+                                                    <input type="checkbox" name="days" value="FRIDAY">
                                                     Friday
                                                 </label><br>
 
                                                 <label>
-                                                    <input type="checkbox" name="days" value="saturday">
+                                                    <input type="checkbox" name="days" value="SATURDAY">
                                                     Saturday
                                                 </label><br>
 
                                                 <label>
-                                                    <input type="checkbox" name="days" value="sunday">
+                                                    <input type="checkbox" name="days" value="SUNDAY">
                                                     Sunday
                                                 </label><br>
 
                                             </div>
 
-                                            <select name="priority" required>
+                                            <select name="task_priority" required>
                                                 <option value="" disabled selected hidden></option>
-                                                <option value="light">Low importance 🟦</option>
-                                                <option value="medium">Medium importance 🟨</option>
-                                                <option value="high">Very important 🟥</option>
+                                                <option value="LIGHT IMPORTANCE">Low importance 🟦</option>
+                                                <option value="MIDDLE IMPORTANCE">Medium importance 🟨</option>
+                                                <option value="HIGH IMPORTANCE">Very important 🟥</option>
                                             </select>
                                         </div>
 
                                         <div class="overlay-container-content-save">
-                                            <button type="submit" class="btn-save">
+                                            <button name="action" type="submit" class="btn-save" value="save">
                                                 Save
                                             </button>
                                         </div>
@@ -174,7 +162,8 @@
                                 Today
                             </h3>
                             <div class="specific-tasks-main-today-content">
-                                <div class="specific-tasks-main-today-now">
+                                <form method="POST" class="specific-tasks-main-today-now">
+                                    {% csrf_token %}
                                     <h4 class="specific-tasks-main-today-now-title">
                                         Next task:
                                     </h4>
@@ -183,14 +172,15 @@
                                             <h4>{{pendent_task.title}}</h4>
                                             <p class="specific-tasks-main-today-now-pendent-description">{{pendent_task.description}}</p>
                                             <p>- {{pendent_task.time}} -</p>
+                                            <input name="current_task_title" type="hidden" value="{{ pendent_task.title }}">
                                             {% else %}
                                             EVENT NOT FOUND
                                         {% endif %}
                                     </div>
-                                    <button class="btn-save">
+                                    <button name="action" type="submit" class="btn-save" value="done">
                                         Done
                                     </button>
-                                </div>
+                                </form>
                                 <aside class="specific-tasks-main-today-next">
                                     {% if today_tasks %}
                                         {% for task in today_tasks %}
