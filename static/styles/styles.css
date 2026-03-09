@@ -825,6 +825,9 @@ footer img{
     width: 100%;
     margin-top: 20px;
 }
+.specific-tasks-main-today-now-pendent h4{
+    font-weight: 500;
+}
 .specific-tasks-main-today-now-pendent-description {
     display: flex;
     font-size: smaller;
@@ -1084,7 +1087,7 @@ footer img{
     background-color: white;
     height: 700px;
     width:50%;
-    min-width: 480px;
+    min-width: 400px;
     border-radius: 15px;
     flex-direction: column;
 }
@@ -1177,6 +1180,7 @@ footer img{
     border-radius: 5px;
     border: solid #b2b2b2 1px;
     width: 50px;
+    min-width: 20px;
     height: 30px;
     margin-right: 5px;
     padding-left: 5px;
@@ -1185,6 +1189,7 @@ footer img{
     border-radius: 5px;
     border: solid #b2b2b2 1px;
     width: 50px;
+    min-width: 20px;
     height: 30px;
     margin-left: 5px;
     padding-left: 5px;
@@ -1193,6 +1198,7 @@ footer img{
     border-radius: 5px;
     border: solid #b2b2b2 1px;
     width: 200px;
+    min-width: 150px;
     height: 30px;
     margin-left: 10px;
     padding-left: 5px;
@@ -1444,6 +1450,12 @@ footer img{
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
 }
+.self-task-card-overlay-importance-done {
+    color: black;
+    background-color:rgb(106, 255, 113) ;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
 .self-task-card-overlay-content-low {
     display: flex;
     flex-direction: column;
@@ -1494,6 +1506,19 @@ footer img{
     overflow-x: hidden;
     gap: 10px;
     border:rgb(160, 160, 160) solid 1px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.self-task-card-overlay-content-done {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 10px;
+    border:rgb(106, 255, 113) solid 1px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -1653,15 +1678,54 @@ footer img{
     .self-card-form {
         flex-direction:row;
     }
+    .gym-sets {
+        border-radius: 5px;
+        border: solid #b2b2b2 1px;
+        width: 20px;
+        height: 30px;
+        margin-right: 5px;
+        padding-left: 5px;
+    }
+    .gym-reps {
+        border-radius: 5px;
+        border: solid #b2b2b2 1px;
+        width: 20px;
+        height: 30px;
+        margin-left: 5px;
+        padding-left: 5px;
+    }
+    .gym-exercise {
+        border-radius: 5px;
+        border: solid #b2b2b2 1px;
+        width: 150px;
+        height: 30px;
+        margin-left: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .not-found, .rest-day {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 600px;
+        color: #a9a9a9;
+        font-size: large;
+    }
+    .not-found {
+        height: 400px;
+    }
 }
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 668px) {
 
     body {
         align-items: stretch;
-        min-width: 450px
+        min-width: 450px;
+        padding:20px;
     }
 
     header,
